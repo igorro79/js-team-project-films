@@ -1,0 +1,38 @@
+{
+  "name": "js-team-project-films",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "parcel src/*.html",
+    "build": "parcel build src/*.html --public-url /js-team-project-films/",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/igorro79/js-team-project-films.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/igorro79/js-team-project-films/issues"
+  },
+  "homepage": "https://igorro79.github.io/js-team-project-films",
+  "devDependencies": {
+    "@pnotify/core": "^5.2.0",
+    "gh-pages": "^3.2.3",
+    "parcel-bundler": "^1.12.5",
+    "parcel-plugin-handlebars": "^0.4.4",
+    "parcel-plugin-handlebars-precompile": "^1.0.2",
+    "parcel-plugin-nuke-dist": "^1.0.1",
+    "posthtml-include": "^1.7.1",
+    "sass": "^1.39.0"
+  },
+  "keywords": [],
+  "dependencies": {
+    "@pnotify/mobile": "^5.2.0",
+    "basiclightbox": "^5.0.4",
+    "lodash.debounce": "^4.0.8"
+  }
+}
