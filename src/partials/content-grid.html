@@ -1,21 +1,20 @@
 <section class="content-section">
   <div class="content-wraper">
-    <ul class="content__btn__list">
-      <li>
-        <button
+    <div class="content__btn__list">
+      <button
         class="content__btn content__btn--active"
         type="button"
         data-action="trend"
+        disabled="true"
       >
         Тренды недели
       </button>
-      </li>
-      <li>
-        <button class="content__btn" type="button" data-action="popular">
+
+      <button class="content__btn" type="button" data-action="popular">
         Популярное
       </button>
-      </li>
-    </ul>
+    </div>
+    <div id="loader"></div>
     <ul id="popular" class="content__cards"></ul>
   </div>
 </section>
