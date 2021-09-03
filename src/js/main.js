@@ -1,1 +1,1 @@
-import ApiService from "./api-service";
+import "./content-grid/content-grid.main";
