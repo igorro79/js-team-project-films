@@ -46,16 +46,19 @@
     display: flex;
   }
 }
-
+.logo__link {
+  display: flex;
+  align-items: stretch;
+}
 .title {
   margin-left: 10px;
   display: none;
   @media screen and (min-width: 768px) {
     display: block;
-    align-self: center;
     color: white;
     font-size: 30px;
-    line-height: 1.17;
+
+    align-self: center;
   }
 }
 .header__nav {
@@ -96,8 +99,13 @@
   height: 20px;
   border-bottom: solid 1px white;
   align-self: center;
-
   margin-top: 40px;
+  font-size: 14px;
+  @media screen and (min-width: 768px) {
+    max-width: 436px;
+    height: 30px;
+    font-size: 18px;
+  }
 }
 .header__input-icon::before {
   content: "";
@@ -141,14 +149,8 @@
     margin-right: 15px;
   }
 }
-.lib-container {
-  display: none;
-}
-.home-container {
-  // display: none;
-}
 
-.header__container .lib-container {
+.lib-container {
   height: 230px;
   display: flex;
   flex-direction: column;
@@ -159,8 +161,8 @@
       rgba(0, 0, 0, 0.56),
       rgba(0, 0, 0, 0.56)
     ),
-    url("/images/header/lib-bg-small.jpg");
-  background-size: cover;
+    url("../images/header/lib-bg-small.jpg");
+  background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
 
@@ -170,7 +172,7 @@
         rgba(0, 0, 0, 0.56),
         rgba(0, 0, 0, 0.56)
       ),
-      url("/images/header/lib-bg-medium.jpg");
+      url("../images/header/lib-bg-medium.jpg");
   }
   @media screen and (min-width: 1024px) {
     background-image: linear-gradient(
@@ -178,6 +180,6 @@
         rgba(0, 0, 0, 0.56),
         rgba(0, 0, 0, 0.56)
       ),
-      url("/images/header/lib-bg-big.jpg");
+      url("../images/header/lib-bg-big.jpg");
   }
 }
