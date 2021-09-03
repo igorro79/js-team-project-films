@@ -3,6 +3,10 @@
   border-radius: 5px;
 }
 
+.content__link {
+  display: block;
+}
+
 .content__poster {
   width: 100%;
   height: 400px;
@@ -30,6 +34,7 @@
 }
 
 .content__rating {
+  margin-left: 6px;
   padding-block: 1px;
   padding-inline: 6px;
   color: #fff;
