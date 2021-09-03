@@ -1,11 +1,11 @@
-@import "../sass/components/common";
-@import "../sass/components/container";
-@import "../sass/utils/visuallyHidden";
-@import "../sass/components/modal-button";
+@import "./components/common";
+@import "./components/container";
+@import "./utils/visuallyHidden";
+@import "./components/modal-button";
 
-@import "../sass/components/header";
-@import "../sass/components/hero";
+@import "./components/header";
+@import "./components/hero";
 @import "./components/content-grid/_content-grid.main";
-@import "../sass/components/footer";
+@import "./components/footer";
 
-// @import "../sass/components/modal";
+// @import "./components/modal";
