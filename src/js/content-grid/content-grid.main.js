@@ -9,7 +9,7 @@ import loaderSpinner from "./loader-spinner";
 const contentCardsRef = document.querySelector(".content__cards");
 const contentBtnListRef = document.querySelector(".content__btn__list");
 const apiService = new ApiService();
-
+// export { onLoadPage };
 onLoadPage();
 
 contentBtnListRef.addEventListener("click", onContentBtnClick);
