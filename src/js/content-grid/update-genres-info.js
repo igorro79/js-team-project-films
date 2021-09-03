@@ -1,7 +1,7 @@
 import getSavedGenres from "./get-saved-genres";
 export default function updateGenresInfo() {
   let info = getSavedGenres();
-  console.log(info);
+
   const genresIdRefs = document.querySelectorAll(".content__genres");
 
   genresIdRefs.forEach((genreIdRef) => {
