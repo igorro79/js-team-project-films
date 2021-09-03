@@ -1,1 +1,71 @@
-<h1>Hello People!!! Lets find some movies!</h1>
+<!-- <h1>Hello People!!! Lets find some movies!</h1> -->
+<header class="page-header">
+  <div class="header__container container home-container">
+    <div class="header__nav-wrapper">
+      <a class="logo__link" href="index.html"
+        ><img
+          class="logo__img"
+          width="24"
+          height="24"
+          src="/images/header/logo.svg"
+        />
+      </a>
+      <p class="title">Filmoteka</p>
+
+      <ul class="header__nav list">
+        <li class="header__nav-item">
+          <a class="header__nav-link header__nav-link--active" href="#">HOME</a>
+        </li>
+
+        <li class="header__nav-item">
+          <a class="header__nav-link" href="#">MY LIBRARY</a>
+        </li>
+      </ul>
+    </div>
+    <div class="header__form">
+      <input
+        class="header__input"
+        type="text"
+        name="query"
+        placeholder="Поиск Фильмов"
+        autocomplete="off"
+      />
+      <p class="header__input-icon"></p>
+    </div>
+
+    <strong class="header__warning" style="display: none"
+      >Search result not successful. Enter the correct movie name and
+    </strong>
+  </div>
+  <div class="header__container container lib-container">
+    <div class="header__nav-wrapper">
+      <a class="logo__link" href="index.html"
+        ><img
+          class="logo__img"
+          width="24"
+          height="24"
+          src="/images/header/logo.svg"
+        />
+      </a>
+      <p class="title">Filmoteka</p>
+
+      <ul class="header__nav list">
+        <li class="header__nav-item">
+          <a class="header__nav-link header__nav-link--active" href="#">HOME</a>
+        </li>
+
+        <li class="header__nav-item">
+          <a class="header__nav-link" href="#">MY LIBRARY</a>
+        </li>
+      </ul>
+    </div>
+    <div class="button-wrapper">
+      <button type="button" class="modal-button header__button--right">
+        Watched
+      </button>
+      <button type="button" class="modal-button modal-button--active">
+        Queue
+      </button>
+    </div>
+  </div>
+</header>
