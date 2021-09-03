@@ -12,7 +12,6 @@ const apiService = new ApiService();
 
 onLoadPage();
 
-renderContent(apiService.fetchTrend({}));
 contentBtnListRef.addEventListener("click", onContentBtnClick);
 
 async function onLoadPage() {
