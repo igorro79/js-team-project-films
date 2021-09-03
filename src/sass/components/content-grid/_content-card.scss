@@ -1,0 +1,38 @@
+.poster__wraper {
+  overflow: hidden;
+  border-radius: 5px;
+}
+
+.content__poster {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  object-position: center;
+}
+
+.card__description {
+  padding-block: 10px;
+}
+
+.content__title {
+  margin-bottom: 5px;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 16px;
+  text-transform: uppercase;
+}
+
+.content__info {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 16px;
+  color: #ff6b08;
+}
+
+.content__rating {
+  padding-block: 1px;
+  padding-inline: 6px;
+  color: #fff;
+  background-color: #ff6b01;
+  border-radius: 5px;
+}
