@@ -17,13 +17,29 @@ p {
 
 a {
   text-decoration: none;
+  color: inherit;
+  display: block;
+  margin: 0;
+  padding: 0;
 }
-.list {
+button {
+  display: block;
+  cursor: pointer;
+  border: transparent;
+}
+ul,
+ol {
   list-style: none;
-  margin: 0px;
-  padding: 0px;
+  margin: 0;
+  padding: 0;
 }
-img {
+label,
+input,
+textarea {
+  display: block;
+}
+img,
+svg {
   display: block;
   max-width: 100%;
   height: auto;
