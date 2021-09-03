@@ -3,8 +3,23 @@
   border-radius: 5px;
 }
 
+.content__card {
+  transition: transform 200ms ease, box-shadow 200ms ease;
+  @media screen and (min-width: 768px) {
+    &:hover {
+      transform: scale(1.03);
+      border-bottom: 1px solid #e4e4e4;
+      border-bottom-left-radius: 5px;
+      border-bottom-right-radius: 5px;
+      box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12),
+        0px 4px 4px rgba(0, 0, 0, 0.06), 1px 4px 6px rgba(0, 0, 0, 0.16);
+    }
+  }
+}
+
 .content__link {
   display: block;
+  cursor: zoom-in;
 }
 
 .content__poster {
@@ -16,6 +31,7 @@
 
 .card__description {
   padding-block: 10px;
+  padding-inline: 2px;
 }
 
 .content__title {
