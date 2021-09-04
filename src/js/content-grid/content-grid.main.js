@@ -1,65 +1,34 @@
 import ApiService from "../api-service/api-service";
-import contentCardsTmp from "../../templates/content-grid";
-import getGenres from "./get-genres";
-import createContentMarkup from "./create-markup";
-import updateGenresInfo from "./update-genres-info";
-import updateYearinfo from "./update-year-info";
-import updateRating from "./update-rating";
-import loaderSpinner from "./loader-spinner";
+import pageInit from "./page-init";
+import renderContent from "./render-content";
+import { setBtnState, setBtnDefaultState } from "./set-btn-state";
 const contentCardsRef = document.querySelector(".content__cards");
 const contentBtnListRef = document.querySelector(".content__btn__list");
 const apiService = new ApiService();
+const contentBtnActiveSelector = "content__btn--active";
+const contentBtnDefDataTag = "data-tag";
+const contentBtnDefDataTagValue = "trend";
 // export { onLoadPage };
-onLoadPage();
+//set default state for content button
+setBtnDefaultState(
+  contentBtnListRef,
+  contentBtnDefDataTag,
+  contentBtnDefDataTagValue,
+  contentBtnActiveSelector
+);
+//function to render page on load
+pageInit(apiService, contentCardsRef);
+//
 
 contentBtnListRef.addEventListener("click", onContentBtnClick);
 
-async function onLoadPage() {
-  getGenres(apiService);
-  renderContent(apiService.fetchTrend({}));
-}
-
-async function renderContent(api) {
-  loaderSpinner.loaderShow(contentCardsRef);
-  try {
-    const collection = await api;
-
-    createContentMarkup(
-      contentCardsRef,
-      collection,
-      contentCardsTmp(collection.results)
-    );
-    loaderSpinner.loaderHide(contentCardsRef);
-    updateGenresInfo();
-    updateYearinfo();
-    updateRating();
-  } catch (error) {
-    console.log(error);
-  }
-}
-
 async function onContentBtnClick(e) {
   e.preventDefault();
-  if (e.target.dataset.action === "trend") {
-    renderContent(apiService.fetchTrend({}));
-    setBtnState();
-  } else if (e.target.dataset.action === "popular") {
-    renderContent(apiService.fetchPopular({}));
-    setBtnState();
-  }
-}
-
-async function setBtnState() {
-  for (const buttonEl of contentBtnListRef.children) {
-    if (
-      buttonEl.classList.contains("content__btn--active") &&
-      buttonEl.disabled === true
-    ) {
-      buttonEl.classList.remove("content__btn--active");
-      buttonEl.disabled = false;
-    } else {
-      buttonEl.classList.add("content__btn--active");
-      buttonEl.disabled = true;
-    }
+  if (e.target.dataset.tag === "trend") {
+    renderContent(apiService.fetchTrend({}), contentCardsRef);
+    setBtnState(contentBtnListRef, contentBtnActiveSelector);
+  } else if (e.target.dataset.tag === "popular") {
+    renderContent(apiService.fetchPopular({}), contentCardsRef);
+    setBtnState(contentBtnListRef, contentBtnActiveSelector);
   }
 }
