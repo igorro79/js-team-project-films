@@ -1,8 +1,9 @@
+@import "./utils/variables";
+// @import "./utils/visuallyHidden";
+
 @import "./components/common";
 @import "./components/container";
-@import "./utils/visuallyHidden";
 @import "./components/modal-button";
-
 @import "./components/header";
 @import "./components/hero";
 @import "./components/content-grid/_content-grid.main";
