@@ -1,5 +1,5 @@
 .page-header {
-  background-color: black;
+  background-color: $black-color;
 }
 .header {
   &__container {
@@ -8,31 +8,19 @@
     display: flex;
     flex-direction: column;
 
-    background-color: black;
-    background-image: linear-gradient(
-        to left,
-        rgba(0, 0, 0, 0.56),
-        rgba(0, 0, 0, 0.56)
-      ),
+    background-color: $black-color;
+    background-image: linear-gradient(to left, $gradient, $gradient),
       url("/images/header/bg-small.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
 
     @media screen and (min-width: 768px) {
-      background-image: linear-gradient(
-          to left,
-          rgba(0, 0, 0, 0.56),
-          rgba(0, 0, 0, 0.56)
-        ),
+      background-image: linear-gradient(to left, $gradient, $gradient),
         url("/images/header/bg-medium.jpg");
     }
     @media screen and (min-width: 1024px) {
-      background-image: linear-gradient(
-          to left,
-          rgba(0, 0, 0, 0.56),
-          rgba(0, 0, 0, 0.56)
-        ),
+      background-image: linear-gradient(to left, $gradient, $gradient),
         url("/images/header/bg-big.jpg");
     }
   }
@@ -55,7 +43,7 @@
   display: none;
   @media screen and (min-width: 768px) {
     display: block;
-    color: white;
+    color: $white-color;
     font-size: 30px;
 
     align-self: center;
@@ -74,12 +62,10 @@
 .header__nav-link {
   font-weight: 500;
   line-height: 1.2;
-  color: white;
+  color: $white-color;
   text-transform: uppercase;
 }
-.header__nav-link--active {
-  color: red;
-}
+
 .header__nav-link--active::after {
   content: "";
   position: absolute;
@@ -89,7 +75,7 @@
   width: 100%;
   height: 4px;
   border-radius: 1px;
-  background-color: red;
+  background-color: $accent8;
 }
 
 .header__form {
@@ -97,7 +83,7 @@
   width: 100%;
   max-width: 336px;
   height: 20px;
-  border-bottom: solid 1px white;
+  border-bottom: solid 1px $white-color;
   align-self: center;
   margin-top: 40px;
   font-size: 14px;
@@ -115,10 +101,9 @@
   right: 0px;
   width: 12px;
   height: 12px;
-  // background-color: #fff;
+
   background-image: url("/images/header/search2.svg");
   background-repeat: no-repeat;
-  // fill: white;
 }
 
 .header__input {
@@ -126,13 +111,13 @@
   border: none;
   width: 100%;
   outline: none;
-  color: white;
+  color: $white-color;
 }
 
 .header__warning {
   margin-top: 22px;
   align-self: center;
-  color: red;
+  color: $warning;
   font-size: 14px;
   font-weight: 400;
   text-align: left;
@@ -155,31 +140,19 @@
   display: flex;
   flex-direction: column;
 
-  background-color: black;
-  background-image: linear-gradient(
-      to left,
-      rgba(0, 0, 0, 0.56),
-      rgba(0, 0, 0, 0.56)
-    ),
+  background-color: $black-color;
+  background-image: linear-gradient(to left, $gradient, $gradient),
     url("../images/header/lib-bg-small.jpg");
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
 
   @media screen and (min-width: 768px) {
-    background-image: linear-gradient(
-        to left,
-        rgba(0, 0, 0, 0.56),
-        rgba(0, 0, 0, 0.56)
-      ),
+    background-image: linear-gradient(to left, $gradient, $gradient),
       url("../images/header/lib-bg-medium.jpg");
   }
   @media screen and (min-width: 1024px) {
-    background-image: linear-gradient(
-        to left,
-        rgba(0, 0, 0, 0.56),
-        rgba(0, 0, 0, 0.56)
-      ),
+    background-image: linear-gradient(to left, $gradient, $gradient),
       url("../images/header/lib-bg-big.jpg");
   }
 }
