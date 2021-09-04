@@ -2,6 +2,7 @@ import ApiService from "../api-service/api-service";
 import pageInit from "../components/page-init";
 import { setBtnState, setBtnDefaultState } from "../components/set-btn-state";
 import {
+  contentCardsRef,
   contentBtnListRef,
   contentBtnDefDataTag,
   contentBtnDefDataTagValue,
@@ -13,32 +14,36 @@ const debounce = require("lodash/debounce");
 const apiService = new ApiService();
 
 export const refs = {
-  contentCardsRef: document.querySelector(".content__cards"),
-  homeBtn: document.querySelector(".js-home"),
-  libBtn: document.querySelector(".js-lib"),
   searchField: document.querySelector(".js-input"),
   libPage: document.querySelector(".lib-container"),
   homePage: document.querySelector(".home-container"),
   watchedBtn: document.querySelector(".js-watched"),
   queueBtn: document.querySelector(".js-queue"),
   contentFilterBtn: document.querySelector(".content__btn__list"),
-  logo: document.querySelector(".js-homepage"),
+  headerNav: document.querySelectorAll(".header__nav-wrapper"),
 };
 
-refs.logo.addEventListener("click", onHomeBtn);
-refs.libBtn.addEventListener("click", onLibBtn);
-refs.homeBtn.addEventListener("click", onHomeBtn);
+refs.headerNav[0].addEventListener("click", onNavButton);
+refs.headerNav[1].addEventListener("click", onNavButton);
 refs.searchField.addEventListener("input", debounce(onInput, 500));
-
 refs.watchedBtn.addEventListener("click", onWatched);
 refs.queueBtn.addEventListener("click", onQueue);
 
-function onHomeBtn(event) {
-  event.preventDefault();
-  refs.libPage.setAttribute("style", "display: none");
+function onNavButton(event) {
+  event.preventDefault;
+  let value = event.target.dataset.name;
+  if (value === "home") {
+    onHomeBtn();
+  } else {
+    onLibBtn();
+  }
+}
+
+function onHomeBtn() {
   refs.homePage.removeAttribute("style", "display: none");
+  refs.libPage.setAttribute("style", "display: none");
   refs.contentFilterBtn.removeAttribute("style", "display: none");
-  pageInit(apiService, refs.contentCardsRef);
+  pageInit(apiService, contentCardsRef);
   setBtnDefaultState(
     contentBtnListRef,
     contentBtnDefDataTag,
@@ -47,8 +52,7 @@ function onHomeBtn(event) {
   );
 }
 
-function onLibBtn(event) {
-  event.preventDefault();
+function onLibBtn() {
   onWatched();
   refs.homePage.setAttribute("style", "display: none");
   refs.libPage.removeAttribute("style", "display: none");
@@ -58,23 +62,24 @@ function onLibBtn(event) {
 function onInput(event) {
   refs.contentFilterBtn.setAttribute("style", "display: none");
   let searchQuery = event.target.value;
-  apiService.query = searchQuery;
-  pageOnSearch(apiService, refs.contentCardsRef);
-  //  refs.searchField.value = "";
-  const resetSearchField = () => {
+  if (searchQuery.trim() === "") {
+    alert("вы ничего не ввели");
     refs.searchField.value = "";
-  };
-  setTimeout(resetSearchField, 200);
+    return;
+  }
+  apiService.query = searchQuery;
+  pageOnSearch(apiService, contentCardsRef);
+  refs.searchField.value = "";
 }
 
 function onWatched(event) {
-  refs.contentCardsRef.innerHTML = "<h2>My watched films</h2>";
+  contentCardsRef.innerHTML = "<h2>My watched films</h2>";
   refs.watchedBtn.classList.add("modal-button--active");
   refs.queueBtn.classList.remove("modal-button--active");
 }
 
 function onQueue(event) {
-  refs.contentCardsRef.innerHTML = "<h2>List to watch</h2>";
+  contentCardsRef.innerHTML = "<h2>List to watch</h2>";
   refs.watchedBtn.classList.remove("modal-button--active");
   refs.queueBtn.classList.add("modal-button--active");
 }
