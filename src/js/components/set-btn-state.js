@@ -16,6 +16,9 @@ function setBtnDefaultState(elementRef, defaultKey, defautlValue, selector) {
     if (buttonEl.getAttribute(defaultKey) === defautlValue) {
       buttonEl.classList.add(selector);
       buttonEl.disabled = true;
+    } else {
+      buttonEl.classList.remove(selector);
+      buttonEl.disabled = false;
     }
   }
 }
