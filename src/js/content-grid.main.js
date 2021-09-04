@@ -8,7 +8,12 @@ const apiService = new ApiService();
 const contentBtnActiveSelector = "content__btn--active";
 const contentBtnDefDataTag = "data-tag";
 const contentBtnDefDataTagValue = "trend";
-// export { onLoadPage };
+export {
+  contentBtnListRef,
+  contentBtnDefDataTag,
+  contentBtnDefDataTagValue,
+  contentBtnActiveSelector,
+};
 
 //function to render page on load
 pageInit(apiService, contentCardsRef);
