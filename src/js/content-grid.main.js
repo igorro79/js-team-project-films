@@ -9,6 +9,10 @@ const contentBtnActiveSelector = "content__btn--active";
 const contentBtnDefDataTag = "data-tag";
 const contentBtnDefDataTagValue = "trend";
 // export { onLoadPage };
+
+//function to render page on load
+pageInit(apiService, contentCardsRef);
+
 //set default state for content button
 setBtnDefaultState(
   contentBtnListRef,
@@ -16,9 +20,6 @@ setBtnDefaultState(
   contentBtnDefDataTagValue,
   contentBtnActiveSelector
 );
-//function to render page on load
-pageInit(apiService, contentCardsRef);
-//
 
 contentBtnListRef.addEventListener("click", onContentBtnClick);
 
