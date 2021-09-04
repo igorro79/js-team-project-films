@@ -1,4 +1,6 @@
 .content__cards {
+  opacity: 0;
+  pointer-events: none;
   display: grid;
   max-width: 100%;
   grid-template-columns: repeat(auto-fill, minmax(274px, 1fr));
@@ -6,10 +8,16 @@
   grid-gap: 30px;
   align-items: stretch;
   justify-content: center;
+  transition: opacity 200ms ease;
   @media screen and (min-width: 320px) and (max-width: 767px) {
     row-gap: 20px;
   }
   @media screen and (min-width: 1024px) {
     min-width: 882px;
+  }
+
+  &.is-active {
+    opacity: 1;
+    pointer-events: initial;
   }
 }

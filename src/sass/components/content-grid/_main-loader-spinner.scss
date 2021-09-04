@@ -1,53 +1,21 @@
 #loader {
-  position: absolute;
+  margin-block: 10px;
+  display: flex;
+  opacity: 0;
   pointer-events: none;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 1;
-  width: 120px;
-  height: 120px;
-  margin: -76px 0 0 -76px;
-  border: 16px solid #f3f3f3;
-  border-radius: 50%;
-  border-top: 16px solid #ff6b01;
-  animation: spin 2s linear infinite;
-}
-
-@keyframes spin {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
-/* Add animation to "page content" */
-.animate-bottom {
-  position: relative;
-  animation-name: animatebottom;
-  animation-duration: 1s;
-}
-
-@-webkit-keyframes animatebottom {
-  from {
-    bottom: -100px;
-    opacity: 0;
-  }
-  to {
-    bottom: 0px;
+  transition: opacity 250ms ease;
+  &.is-active {
     opacity: 1;
   }
 }
 
-@keyframes animatebottom {
-  from {
-    bottom: -100px;
-    opacity: 0;
-  }
-  to {
-    bottom: 0;
-    opacity: 1;
-  }
+.spinner {
+  margin-right: 10px;
+  color: #ff6b01;
+}
+
+.sr-only {
+  font-size: 2rem;
+  line-height: 2rem;
+  color: #ff6b01;
 }
