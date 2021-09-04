@@ -31,26 +31,26 @@
 
 .card__description {
   padding-block: 10px;
-  padding-inline: 5px;
+  padding-left: 5px;
+  padding-right: 2px;
 }
 
 .content__title {
-  margin-bottom: 5px;
   font-weight: 500;
   font-size: 14px;
-  line-height: 16px;
+  line-height: 17px;
   text-transform: uppercase;
 }
 
 .content__info {
   font-weight: 500;
   font-size: 14px;
-  line-height: 16px;
+  line-height: 17px;
   color: #ff6b08;
 }
 
 .content__rating {
-  margin-left: 6px;
+  margin-left: 3px;
   padding-block: 1px;
   padding-inline: 6px;
   color: #fff;
