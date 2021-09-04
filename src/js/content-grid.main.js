@@ -9,6 +9,7 @@ const contentBtnActiveSelector = "content__btn--active";
 const contentBtnDefDataTag = "data-tag";
 const contentBtnDefDataTagValue = "trend";
 export {
+  contentCardsRef,
   contentBtnListRef,
   contentBtnDefDataTag,
   contentBtnDefDataTagValue,
