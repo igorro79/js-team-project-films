@@ -1,4 +1,4 @@
-import contentCardsTmp from "../../templates/content-grid";
+import contentCardsTmp from "../../templates/content-grid.hbs";
 import createContentMarkup from "./create-markup";
 import updateGenresInfo from "./update-genres-info";
 import updateYearinfo from "./update-year-info";

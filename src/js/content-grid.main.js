@@ -1,7 +1,7 @@
-import ApiService from "../api-service/api-service";
-import pageInit from "./page-init";
-import renderContent from "./render-content";
-import { setBtnState, setBtnDefaultState } from "./set-btn-state";
+import ApiService from "./api-service/api-service";
+import pageInit from "./components/page-init";
+import renderContent from "./components/render-content";
+import { setBtnState, setBtnDefaultState } from "./components/set-btn-state";
 const contentCardsRef = document.querySelector(".content__cards");
 const contentBtnListRef = document.querySelector(".content__btn__list");
 const apiService = new ApiService();
