@@ -3,7 +3,6 @@
 }
 .header {
   &__container {
-    position: relative;
     height: 230px;
     display: flex;
     flex-direction: column;
@@ -11,7 +10,7 @@
     background-color: $black-color;
     background-image: linear-gradient(to left, $gradient, $gradient),
       url("/images/header/bg-small.jpg");
-    background-size: cover;
+    background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
 
@@ -136,16 +135,8 @@
 }
 
 .lib-container {
-  height: 230px;
-  display: flex;
-  flex-direction: column;
-
-  background-color: $black-color;
   background-image: linear-gradient(to left, $gradient, $gradient),
     url("../images/header/lib-bg-small.jpg");
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
 
   @media screen and (min-width: 768px) {
     background-image: linear-gradient(to left, $gradient, $gradient),
