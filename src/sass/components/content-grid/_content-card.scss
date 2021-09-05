@@ -1,12 +1,3 @@
-.poster__wraper {
-  background-color: rgb(243, 243, 243);
-  background-image: url(../images/content-grid/256px-No_image_available.svg.png);
-  background-repeat: no-repeat;
-  background-position: center;
-  overflow: hidden;
-  border-radius: 5px;
-}
-
 .content__card {
   transition: transform 200ms ease;
 
@@ -22,6 +13,16 @@
   cursor: zoom-in;
 }
 
+.poster__wraper {
+  pointer-events: none; //for detection correct e.target on card click
+  background-color: rgb(243, 243, 243);
+  background-image: url(../images/content-grid/256px-No_image_available.svg.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  overflow: hidden;
+  border-radius: 5px;
+}
+
 .content__poster {
   width: 100%;
   height: 420px;
@@ -30,6 +31,7 @@
 }
 
 .card__description {
+  pointer-events: none; //for detection correct e.target on card click
   padding-block: 10px;
 }
 
