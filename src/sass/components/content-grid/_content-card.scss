@@ -1,18 +1,18 @@
 .poster__wraper {
+  background-color: rgb(243, 243, 243);
+  background-image: url(../images/content-grid/256px-No_image_available.svg.png);
+  background-repeat: no-repeat;
+  background-position: center;
   overflow: hidden;
   border-radius: 5px;
 }
 
 .content__card {
-  transition: transform 200ms ease, box-shadow 200ms ease;
-  @media screen and (min-width: 768px) {
+  transition: transform 200ms ease;
+
+  @media screen and (min-width: 1024px) {
     &:hover {
       transform: scale(1.03);
-      border-bottom: 1px solid #e4e4e4;
-      border-bottom-left-radius: 5px;
-      border-bottom-right-radius: 5px;
-      box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12),
-        0px 4px 4px rgba(0, 0, 0, 0.06), 1px 4px 6px rgba(0, 0, 0, 0.16);
     }
   }
 }
@@ -31,22 +31,25 @@
 
 .card__description {
   padding-block: 10px;
-  padding-left: 5px;
-  padding-right: 2px;
 }
 
-.content__title {
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 17px;
-  text-transform: uppercase;
-}
-
+.content__title,
 .content__info {
   font-weight: 500;
   font-size: 14px;
-  line-height: 17px;
+  line-height: 16px;
+  text-transform: uppercase;
+}
+.content__title {
+  margin-bottom: 2px;
+}
+.content__info {
+  font-size: 11px;
   color: #ff6b08;
+  text-transform: none;
+  @media screen and (min-width: 390px) {
+    font-size: 14px;
+  }
 }
 
 .content__rating {

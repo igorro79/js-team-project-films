@@ -1,11 +1,11 @@
 const loader = document.getElementById("loader");
 function loaderShow(contentblock) {
-  loader.style = "display: block";
-  contentblock.style = "display: none";
+  loader.classList.add("is-active");
+  contentblock.classList.remove("is-active");
 }
 function loaderHide(contentblock) {
-  loader.style = "display: none";
-  contentblock.style = "display: grid";
+  loader.classList.remove("is-active");
+  contentblock.classList.add("is-active");
 }
 
 export default { loaderShow, loaderHide };
