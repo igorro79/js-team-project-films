@@ -3,7 +3,7 @@ footer {
 }
 
 .footer {
-  &_container {
+  &__container {
     padding-top: 30px;
     padding-bottom: 30px;
     @media screen and(min-width:768px) {
@@ -12,7 +12,7 @@ footer {
       justify-content: center;
     }
   }
-  &_text {
+  &__text {
     display: flex;
     text-align: center;
     color: $footer-text;
@@ -21,7 +21,9 @@ footer {
     font-style: normal;
     margin-left: 5px;
   }
-  &_heart {
+  &__heart {
     color: $accent8;
+    margin: 0 5px;
   }
+ 
 }
