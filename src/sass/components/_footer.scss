@@ -1,26 +1,27 @@
-footer{
-    background-color:$light-grey;
+footer {
+  background-color: $light-grey;
 }
 
-.footer{
-    &_container{
-        padding-top: 30px;
-        padding-bottom: 30px;
-        @media screen and(min-width:768px) {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
+.footer {
+  &_container {
+    padding-top: 30px;
+    padding-bottom: 30px;
+    @media screen and(min-width:768px) {
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
-    &_text{
-        text-align: center;
-        color: $footer-text;
-        font-size: 16px;
-        font-weight: 400;
-        font-style: normal;
-        margin-left: 5px;
-    }
-    &_heart{
-        color: $accent8;
-    }
+  }
+  &_text {
+    display: flex;
+    text-align: center;
+    color: $footer-text;
+    font-size: 16px;
+    font-weight: 400;
+    font-style: normal;
+    margin-left: 5px;
+  }
+  &_heart {
+    color: $accent8;
+  }
 }
