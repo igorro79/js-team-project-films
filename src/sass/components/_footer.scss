@@ -1,5 +1,5 @@
 footer{
-    background-color: #f7f7f7;
+    background-color:$light-grey;
 }
 
 .footer{
@@ -14,13 +14,13 @@ footer{
     }
     &_text{
         text-align: center;
-        color: #545454;
+        color: $footer-text;
         font-size: 16px;
         font-weight: 400;
         font-style: normal;
         margin-left: 5px;
     }
     &_heart{
-        color: #FF6B08;
+        color: $accent8;
     }
 }
