@@ -1,27 +1,60 @@
 ​
-    <div class="lightbox js-lightbox">
-​
-    <div class="lightbox__overlay"></div>
-​
-    <div class="lightbox__content">
-        <img class="lightbox__image" src="{{poster_path}}" alt="{{title}}" />
-​
-        <div class="lightbox__information">
-            <h2 class='lightbox__title'> {{title}}</h2>
-            <ul class="lightbox__list list">
-                <li class="lightbox__list__item">Vote / Votes <span class="">{{vote_average}} / {{vote_count}} </span></li>
-                <li class="lightbox__list__item">Popularity <span class="" {{popularity}} </span></li>
-                <li class="lightbox__list__item">Original Title <span class=""> {{original_title}} </span></li>
-                <li class="lightbox__list__item">Genre <span class="" {{genre_ids}} / </span></li>
-            </ul>
-            <h3 class="lightbox__about">About</h3>
-            <p class="lightbox__text">{{overview}}
-            </p>
-            <button class="content__btn content__btn--active" type="button" data-index="btn-to-wached">add to Watched</button>
-            <button class="content__btn" type="button" data-index="btn-to-queue">add to queue</button>
-        </div>
-​
+<div class="lightbox js-lightbox">
+  ​
+  <div class="lightbox__overlay"></div>
+  ​
+  <div class="lightbox__content">
+    <img
+      class="lightbox__image"
+      src="https://image.tmdb.org/t/p/w300{{poster_path}}"
+      alt="{{title}}"
+    />
+    ​
+    <div class="lightbox__information">
+      <h2 class="lightbox__title"> {{title}}</h2>
+      <ul class="lightbox__list list">
+        <li class="lightbox__list__item">Vote / Votes
+          <span class="">
+            {{vote_average}}
+            /
+            {{vote_count}}
+          </span>
+        </li>
+        <li class="lightbox__list__item">Popularity
+          <span class="">
+            {{popularity}}
+          </span>
+        </li>
+        <li class="lightbox__list__item">Original Title
+          <span class="">
+            {{original_title}}
+          </span>
+        </li>
+        <li class="lightbox__list__item">Genre
+          {{#each genres}}
+            <span class="">
+              {{this.name}}
+            </span>
+          {{/each}}
+        </li>
+      </ul>
+      <h3 class="lightbox__about">About</h3>
+      <p class="lightbox__text">{{overview}}
+      </p>
+      <button
+        class="content__btn content__btn--active"
+        type="button"
+        data-index="btn-to-wached"
+      >add to Watched</button>
+      <button class="content__btn" type="button" data-index="btn-to-queue">add
+        to queue</button>
     </div>
-​
-    <button type="button" class="lightbox__button" data-action="close-lightbox"></button>
+    ​
+  </div>
+  ​
+  <button
+    type="button"
+    class="lightbox__button"
+    data-action="close-lightbox"
+  ></button>
 </div>
