@@ -33,6 +33,10 @@
   "dependencies": {
     "@pnotify/mobile": "^5.2.0",
     "basiclightbox": "^5.0.4",
+    "highlight.js": "^11.2.0",
     "lodash.debounce": "^4.0.8"
+  },
+  "optionalDependencies": {
+    "fsevents": "^2.3.2"
   }
 }
