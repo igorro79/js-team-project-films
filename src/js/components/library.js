@@ -4,7 +4,7 @@ import localStorageApi from './localStorageApi';
 import cardFilmsTpl from '../../templates/content-grid.hbs';
 
 
-const CHOICE_STORAGE_BTN_NAME = 'storage-btn';
+const CHOICE_STORAGE_BTN_NAME = 'modal-button';
 const USER_POINT_STORAGE_NAME = 'user';
 
 const getMovies = async idList => {
@@ -41,16 +41,14 @@ function renderMovies() {
   saveCurrentLibrary(key);
 
   if (idList.length) {
-    placeholder.spinner.show();
-    getMovies(idList.slice(0, 20)).then(moviesArray => {
+        getMovies(idList.slice(0, 20)).then(moviesArray => {
       renderMarkup(moviesArray);
-      refs.paginationContainer.style.display = 'block';
-      fetchDataOfLibFilms();
-      placeholder.spinner.close();
+            fetchDataOfLibFilms();
+     
     });
   } else {
-    refs.cardLibrary.innerHTML = `<img src="${nothingHereUrl}" alt="There is nothing" />`;
-    refs.paginationContainer.style.display = 'none';
+    refs.cardLibrary.innerHTML = `There is nothing here" />`;
+    
   }
 }
 function getCheckedLiblary() {
@@ -59,8 +57,7 @@ function getCheckedLiblary() {
 }
 function renderMarkup(moviesArray) {
   refs.cardLibrary.innerHTML = cardFilmsTpl(moviesArray);
-  trailer.createTrailerLink(document.querySelectorAll('.btn-youtube'));
-}
+  }
 
 function getCurrentLibrary() {
   const userPoint = localStorageApi.load(USER_POINT_STORAGE_NAME);
@@ -74,13 +71,7 @@ function saveCurrentLibrary(currentLibrary) {
   localStorageApi.save(USER_POINT_STORAGE_NAME, { currentLibrary });
 }
 
-// pagination
 
-// renders main (first) page = renderMovies
-
-// function for insertion of markup = renderMarkup(moviesArray)
-
-// renders movies by appropriate page
 function displayLibList(wrapper, page) {
   wrapper.innerHTML = '';
   fetchLibFilmsByPage(page).catch(err => {
@@ -88,7 +79,7 @@ function displayLibList(wrapper, page) {
   });
 }
 
-// fetches movies by appropriate page
+
 function fetchLibFilmsByPage(page) {
   const key = getCheckedLiblary();
   const idList = localStorageApi.getMovies(key);
