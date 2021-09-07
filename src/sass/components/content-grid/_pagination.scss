@@ -2,6 +2,8 @@
   margin-top: 50px;
   margin-bottom: 60px;
   margin-inline: auto;
+  font-weight: 500px;
+  line-height: 16px;
 }
 
 .pagination-container {
@@ -19,24 +21,26 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  font-weight: 500;
+  line-height: 16px;
   background-color: transparent;
   border-radius: 5px;
   border: none;
   transition: color 200ms ease, background-color 200ms ease;
   &__control {
     padding: 12px;
-    background-color: #f7f7f7;
+    background-color: $light-grey;
   }
   &:hover,
   &:focus,
   &.is-active {
-    color: #fff;
-    background-color: #ff6b08;
+    color: $white-color;
+    background-color: $accent8;
   }
 
   &:hover .arrow,
   &:focus .arrow {
-    stroke: #fff;
+    stroke: $white-color;
   }
 }
 
@@ -46,6 +50,6 @@
   object-fit: contain;
   object-position: center;
   fill: none;
-  stroke: #000;
+  stroke: $black-color;
   transition: stroke 200ms ease;
 }
