@@ -4,6 +4,9 @@
   <div class="lightbox__overlay"></div>
   ​
   <div class="lightbox__content">
+    <button type="button" class="lightbox__button" data-action="close-lightbox">
+    </button>
+    
     <img
       class="lightbox__image"
       src="https://image.tmdb.org/t/p/w300{{poster_path}}"
@@ -13,27 +16,33 @@
     <div class="lightbox__information">
       <h2 class="lightbox__title"> {{title}}</h2>
       <ul class="lightbox__list list">
-        <li class="lightbox__list__item">Vote / Votes
-          <span class="">
-            {{vote_average}}
+        <li class="lightbox__list__item">
+          <p class="item__list-title"> Vote / Votes</p>
+          <p class="">
+            <span class="content__rating"> {{vote_average}}</span>
+           
             /
-            {{vote_count}}
-          </span>
+            <span class="content__vote">{{vote_count}}</span> 
+          </p>
+          
         </li>
-        <li class="lightbox__list__item">Popularity
-          <span class="">
-            {{popularity}}
-          </span>
+        <li class="lightbox__list__item">
+          <p class="item__list-title">Popularity</p> 
+
+          <p class="item-info-popul">
+            {{popularity}}</p>
         </li>
-        <li class="lightbox__list__item">Original Title
-          <span class="">
+        <li class="lightbox__list__item">
+          <p class="item__list-title">Original Title</p>
+          <span class="item-info-orig">
             {{original_title}}
           </span>
         </li>
-        <li class="lightbox__list__item">Genre
+        <li class="lightbox__list__item">
+          <p class="item__list-title">Genrep</p>
           {{#each genres}}
-            <span class="">
-              {{this.name}}
+            <span class="item-info-gen">
+              {{this.name}}{{#unless @last}}, {{/unless}}
             </span>
           {{/each}}
         </li>
@@ -41,20 +50,18 @@
       <h3 class="lightbox__about">About</h3>
       <p class="lightbox__text">{{overview}}
       </p>
+      <div class="buttons-content">
       <button
         class="content__btn content__btn--active"
         type="button"
-        data-index="btn-to-wached"
+        data-action="btn-to-wached"
       >add to Watched</button>
-      <button class="content__btn" type="button" data-index="btn-to-queue">add
+      <button class="content__btn" type="button" data-action="btn-to-queue">add
         to queue</button>
+        </div>
     </div>
     ​
   </div>
   ​
-  <button
-    type="button"
-    class="lightbox__button"
-    data-action="close-lightbox"
-  ></button>
+  
 </div>
