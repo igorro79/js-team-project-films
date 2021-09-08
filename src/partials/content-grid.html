@@ -1,13 +1,9 @@
 <section class="content-section">
   <div class="content-wraper">
     <div class="content__btn__list">
-      <button class="content__btn" type="button" data-tag="trend">
-        Тренды недели
-      </button>
+      <button class="content__btn" type="button" data-tag="trend">Тренды недели</button>
 
-      <button class="content__btn" type="button" data-tag="popular">
-        Популярное
-      </button>
+      <button class="content__btn" type="button" data-tag="popular">Популярное</button>
     </div>
     <div id="loader">
       <div class="loadingio-spinner-spin-wes7hd5hzqi spinner">
@@ -26,35 +22,28 @@
     </div>
     <ul id="popular" class="content__cards"></ul>
     <div class="pagination">
+      <button class="pagination__btn pagination__btn__control" type="button" data-action="prev-btn">
+        <svg class="arrow">
+          <use href="./images/content-grid/pag-icons.svg#icon-arrow-left"></use>
+        </svg>
+      </button>
       <div class="pagination-container">
-        <button
-          class="pagination__btn pagination__btn__control"
-          type="button"
-          data-action="prev-btn"
-        >
-          <svg class="arrow">
-            <use
-              href="./images/content-grid/pag-icons.svg#icon-arrow-left"
-            ></use>
-          </svg>
-        </button>
-
-        <button class="pagination__btn" type="button" data-action="page">
-          1
-        </button>
-
-        <button
-          class="pagination__btn pagination__btn__control"
-          type="button"
-          data-action="next-btn"
-        >
-          <svg class="arrow">
-            <use
-              href="./images/content-grid/pag-icons.svg#icon-arrow-right"
-            ></use>
-          </svg>
-        </button>
+        <!-- <button class="pagination__btn" type="button" data-action="page">1</button>
+        <button class="pagination__btn" type="button" data-action="page">2</button>
+        <button class="pagination__btn" type="button" data-action="page">3</button>
+        <button class="pagination__btn" type="button" data-action="page">4</button>
+        <button class="pagination__btn" type="button" data-action="page">5</button>
+        <button class="pagination__btn" type="button" data-action="page">6</button>
+        <button class="pagination__btn" type="button" data-action="page">7</button>
+        <button class="pagination__btn" type="button" data-action="page">8</button>
+        <button class="pagination__btn" type="button" data-action="page">9</button>
+        <button class="pagination__btn" type="button" data-action="page">10</button> -->
       </div>
+      <button class="pagination__btn pagination__btn__control" type="button" data-action="next-btn">
+        <svg class="arrow">
+          <use href="./images/content-grid/pag-icons.svg#icon-arrow-right"></use>
+        </svg>
+      </button>
     </div>
   </div>
 </section>

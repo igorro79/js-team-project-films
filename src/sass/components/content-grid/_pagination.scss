@@ -1,8 +1,10 @@
 .pagination {
+  display: none;
   margin-top: 50px;
   margin-bottom: 60px;
-  margin-inline: auto;
-  font-weight: 500px;
+  align-items: center;
+  justify-content: center;
+  font-weight: 500;
   line-height: 16px;
 }
 
