@@ -180,7 +180,7 @@ function showInterval(currentPage) {
         child.style.display = 'none';
       }
     }
-  } else if (currentPage >= end - 2) {
+  } else if (currentPage <= end - 2) {
     pagShowEndInterval(currentPage, end, interval);
     setPageState(currentPage);
   }
