@@ -1,3 +1,4 @@
+import { first } from 'lodash';
 import ApiService from './api-service/api-service';
 import pageInit from './components/page-init';
 import renderContent from './components/render-content';
@@ -50,33 +51,40 @@ async function onContentBtnClick(e) {
 
 const paginationContainerRef = document.querySelector('.pagination');
 const pagElContainerRef = paginationContainerRef.querySelector('.pagination-container');
+
+let start = 1;
+let totalPages = 20;
 let currentPage = 1;
+let interval = 5;
+let end = totalPages;
 
 paginationContainerRef.addEventListener('click', onPaginationClick);
 
 async function onPaginationClick(e) {
   e.preventDefault();
+
   if (e.target.nodeName !== 'BUTTON') {
     return;
   }
-
   if (e.target.dataset.action === 'page') {
     currentPage = +e.target.innerText;
-    setPageState(e);
-    console.log(currentPage);
-    apiService.pageNumber = currentPage;
-    renderContent(apiService.fetchPopular({}), contentCardsRef);
+    setPageState(currentPage);
+  } else if (e.target.dataset.action === 'prev-btn') {
+    pagPrevPage();
+  } else if (e.target.dataset.action === 'next-btn') {
+    pagNextPage();
   }
+
+  apiService.pageNumber = currentPage;
+  renderContent(apiService.fetchPopular({}), contentCardsRef);
 }
 
 async function paginationInit() {
-  let start = 1;
-  let totalPages = 20;
-  let end = totalPages;
   paginationContainerRef.style.display = 'flex';
   pagElContainerRef.innerHTML = '';
   renderPagPages(totalPages);
-  pagShowStartInterval(start, 10);
+  pagShowStartInterval(currentPage, start, interval);
+  return currentPage;
 }
 
 function renderPagPages(totalPages) {
@@ -88,16 +96,29 @@ function renderPagPages(totalPages) {
   }
 }
 
-function pagShowStartInterval(start, inteval) {
+function pagShowStartInterval(currentPage, start, interval) {
   for (const child of pagElContainerRef.children) {
-    if (+child.innerText > start + inteval - start) {
+    if (+child.innerText > start + interval - start) {
       child.style.display = 'none';
-      setDefCurrentPage();
+      setDefCurrentPage(currentPage);
+    } else {
+      child.style.display = 'flex';
     }
   }
 }
 
-function setDefCurrentPage() {
+function showEndInterval(currentPage, end, interval) {
+  for (const child of pagElContainerRef.children) {
+    if (+child.innerText > end - interval) {
+      child.style.display = 'flex';
+      setDefCurrentPage(currentPage);
+    } else {
+      child.style.display = 'none';
+    }
+  }
+}
+
+function setDefCurrentPage(currentPage) {
   for (const child of pagElContainerRef.children) {
     if (+child.innerText === currentPage) {
       child.classList.add('is-active');
@@ -106,12 +127,12 @@ function setDefCurrentPage() {
   }
 }
 
-function setPageState(e) {
+function setPageState(currentPage) {
   for (const child of pagElContainerRef.children) {
     if (child.classList.contains('is-active')) {
       child.classList.remove('is-active');
       child.disabled = false;
-    } else if (!child.classList.contains('is-active') && +e.target.innerText === +child.innerText) {
+    } else if (!child.classList.contains('is-active') && currentPage === +child.innerText) {
       child.classList.add('is-active');
       child.disabled = true;
     }
@@ -120,4 +141,27 @@ function setPageState(e) {
 
 function paginationHide() {
   paginationContainerRef.style.display = 'none';
+}
+
+function pagNextPage() {
+  currentPage += 1;
+
+  if (currentPage > totalPages) {
+    currentPage = 1;
+    pagShowStartInterval(currentPage, start, interval);
+    setPageState(currentPage);
+  }
+
+  setPageState(currentPage);
+}
+
+function pagPrevPage() {
+  currentPage -= 1;
+
+  if (currentPage < 1) {
+    currentPage = totalPages;
+    showEndInterval(currentPage, end, interval);
+    setPageState(currentPage);
+  }
+  setPageState(currentPage);
 }
