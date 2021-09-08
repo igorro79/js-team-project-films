@@ -1,4 +1,3 @@
-import { first } from 'lodash';
 import ApiService from './api-service/api-service';
 import pageInit from './components/page-init';
 import renderContent from './components/render-content';
