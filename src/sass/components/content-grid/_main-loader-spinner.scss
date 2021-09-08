@@ -27,7 +27,7 @@
   width: 12px;
   height: 12px;
   border-radius: 50%;
-  background: #ff6b01;
+  background: accent1;
   animation: ldio-yy1pvfmeeme 1s linear infinite;
 }
 .ldio-yy1pvfmeeme div:nth-child(1) > div {
@@ -127,5 +127,5 @@
   font-size: 2rem;
   font-weight: 500;
   line-height: 2rem;
-  color: #ff6b01;
+  color: $accent1;
 }
