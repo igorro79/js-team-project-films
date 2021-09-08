@@ -1,6 +1,6 @@
 import localStorageApi from "./localStorageApi";
 export const initStorageBtns = () => {
-  const storageEl = document.querySelector('.js-lightbox .content__btn');
+  const storageEl = document.querySelector('.js-lightbox .buttons-content');
   const movieId = document.querySelector('.js-lightbox').dataset.action;
 
   checkStorage(storageEl);

@@ -1,10 +1,10 @@
 
-import content from '../content-grid.main';
+
 import localStorageApi from './localStorageApi';
 import cardFilmsTpl from '../../templates/content-grid.hbs';
 
 
-const CHOICE_STORAGE_BTN_NAME = 'modal-button';
+const CHOICE_STORAGE_BTN_NAME = 'content__btn';
 const USER_POINT_STORAGE_NAME = 'user';
 
 const getMovies = async idList => {
