@@ -68,6 +68,7 @@ async function onPaginationClick(e) {
   }
   if (e.target.dataset.action === 'page') {
     currentPage = +e.target.innerText;
+    showInterval(currentPage, start, end);
     setPageState(currentPage);
   } else if (e.target.dataset.action === 'prev-btn') {
     pagPrevPage();
@@ -107,7 +108,7 @@ function pagShowStartInterval(currentPage, start, interval) {
   }
 }
 
-function showEndInterval(currentPage, end, interval) {
+function pagShowEndInterval(currentPage, end, interval) {
   for (const child of pagElContainerRef.children) {
     if (+child.innerText > end - interval) {
       child.style.display = 'flex';
@@ -151,7 +152,7 @@ function pagNextPage() {
     pagShowStartInterval(currentPage, start, interval);
     setPageState(currentPage);
   }
-
+  showInterval(currentPage, start, end);
   setPageState(currentPage);
 }
 
@@ -160,8 +161,27 @@ function pagPrevPage() {
 
   if (currentPage < 1) {
     currentPage = totalPages;
-    showEndInterval(currentPage, end, interval);
+    pagShowEndInterval(currentPage, end, interval);
     setPageState(currentPage);
   }
+  showInterval(currentPage, start, end);
   setPageState(currentPage);
+}
+
+function showInterval(currentPage) {
+  if (currentPage <= start + 2) {
+    pagShowStartInterval(currentPage, start, interval);
+    setPageState(currentPage);
+  } else if (currentPage > start + 2 && currentPage < end - 3) {
+    for (const child of pagElContainerRef.children) {
+      if (+child.innerText > currentPage - 3 && +child.innerText < currentPage + 3) {
+        child.style.display = 'flex';
+      } else {
+        child.style.display = 'none';
+      }
+    }
+  } else if (currentPage >= end - 2) {
+    pagShowEndInterval(currentPage, end, interval);
+    setPageState(currentPage);
+  }
 }
