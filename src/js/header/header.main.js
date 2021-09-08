@@ -1,6 +1,7 @@
 import ApiService from "../api-service/api-service";
 import pageInit from "../components/page-init";
 import { setBtnState, setBtnDefaultState } from "../components/set-btn-state";
+
 import {
   contentCardsRef,
   contentBtnListRef,
@@ -21,11 +22,12 @@ export const refs = {
   queueBtn: document.querySelector(".js-queue"),
   contentFilterBtn: document.querySelector(".content__btn__list"),
   headerNav: document.querySelectorAll(".header__nav-wrapper"),
+  badSearchMsg: document.querySelector(".header__warning"),
 };
 
 refs.headerNav[0].addEventListener("click", onNavButton);
 refs.headerNav[1].addEventListener("click", onNavButton);
-refs.searchField.addEventListener("input", debounce(onInput, 500));
+refs.searchField.addEventListener("input", debounce(onInput, 1000));
 refs.watchedBtn.addEventListener("click", onWatched);
 refs.queueBtn.addEventListener("click", onQueue);
 
@@ -34,7 +36,7 @@ function onNavButton(event) {
   let value = event.target.dataset.name;
   if (value === "home") {
     onHomeBtn();
-  } else {
+  } else if (value === "liba") {
     onLibBtn();
   }
 }
@@ -60,10 +62,14 @@ function onLibBtn() {
 }
 
 function onInput(event) {
+  if (!refs.badSearchMsg.hasAttribute("style")) {
+    refs.badSearchMsg.setAttribute("style", "display: none");
+  }
+
   refs.contentFilterBtn.setAttribute("style", "display: none");
   let searchQuery = event.target.value;
   if (searchQuery.trim() === "") {
-    alert("вы ничего не ввели");
+    refs.badSearchMsg.removeAttribute("style", "display: none");
     refs.searchField.value = "";
     return;
   }
