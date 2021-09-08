@@ -6,7 +6,6 @@ import { setBtnState, setBtnDefaultState } from './components/set-btn-state';
 const apiService = new ApiService();
 const contentCardsRef = document.querySelector('.content__cards');
 const contentBtnListRef = document.querySelector('.content__btn__list');
-console.dir(contentBtnListRef);
 
 const contentBtnActiveSelector = 'content__btn--active';
 const contentBtnDefDataTag = 'data-tag';
