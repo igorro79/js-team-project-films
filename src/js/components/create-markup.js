@@ -5,22 +5,22 @@ import { contentCardsRef } from "../content-grid.main";
 let badSearchMsg = document.querySelector(".header__warning");
 let body = document.querySelector("BODY");
 const apiService = new ApiService();
-let loaderTeg = document.getElementById("loader");
+let allWeFoundWarning = document.querySelector(".header__thats-all-msg");
 
 export default function createContentMarkup(element, collection, template) {
   if (collection.total_results === 0) {
     badSearchMsg.removeAttribute("style", "display: none");
-
     body.addEventListener("click", removeWarning);
     pageInit(apiService, contentCardsRef);
-    return;
   } else if (collection.total_results < 20) {
-    badSearchMsg.removeAttribute("style", "display: none");
+    allWeFoundWarning.removeAttribute("style", "display: none");
+    body.addEventListener("click", removeWarning);
   }
   element.innerHTML = template;
 }
 
 function removeWarning() {
+  allWeFoundWarning.setAttribute("style", "display: none");
   badSearchMsg.setAttribute("style", "display: none");
   body.removeEventListener("click", removeWarning);
 }

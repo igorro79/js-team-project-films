@@ -147,8 +147,11 @@
       url("../images/header/lib-bg-big.jpg");
   }
 }
-.thats-all {
-  color: red;
-  font-style: 18px;
+.header__thats-all-msg {
+  margin-top: 22px;
   align-self: center;
+  color: $accent8;
+  font-size: 16px;
+  font-weight: 500;
+  text-align: left;
 }
