@@ -1,5 +1,6 @@
 import filmCardsTmp from "../../templates/film-card.hbs";
 import ApiService from "../api-service/api-service";
+import { initStorageBtns } from "./modalStorage";
 
 
 
@@ -13,8 +14,8 @@ const apiService = new ApiService();
     insert.classList.add('is-open');
     onCloseButtonClick()
     onBackdropClick()
-  onEscKeyPress()
-
+    onEscKeyPress()
+    initStorageBtns()
 }
 
 export { onCardClick, insert };

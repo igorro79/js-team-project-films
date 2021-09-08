@@ -30,6 +30,11 @@ const localStorageApi = {
      },
 
 
+    init(key) {
+        if (localStorage.getItem(key) === null) {
+            localStorage.setItem(key,"[]");
+        }
+    },
     
     load(key){
         try {
