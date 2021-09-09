@@ -11,6 +11,9 @@ import {
 } from '../content-grid.main';
 import { onLibraryClick, onLibraryBtnClick } from '../components/render-library-list';
 import pageOnSearch from '../components/on-search';
+import LocalStorageApi from '../components/localStorageApi';
+
+const localStorageApi = new LocalStorageApi();
 const debounce = require('lodash/debounce');
 const apiService = new ApiService();
 
@@ -57,7 +60,7 @@ function onHomeBtn() {
 function onLibBtn(event) {
   refs.watchedBtn.addEventListener('click', onWatched);
   refs.queueBtn.addEventListener('click', onQueue);
-  onLibraryBtnClick(event);
+  onLibraryClick(event);
   refs.homePage.setAttribute('style', 'display: none');
   refs.libPage.removeAttribute('style', 'display: none');
   refs.contentFilterBtn.setAttribute('style', 'display: none');
