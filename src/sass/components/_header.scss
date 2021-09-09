@@ -9,18 +9,18 @@
 
     background-color: $black-color;
     background-image: linear-gradient(to left, $gradient, $gradient),
-      url("/images/header/bg-small.jpg");
+      url('/images/header/bg-small.jpg');
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
 
     @media screen and (min-width: 768px) {
       background-image: linear-gradient(to left, $gradient, $gradient),
-        url("/images/header/bg-medium.jpg");
+        url('/images/header/bg-medium.jpg');
     }
     @media screen and (min-width: 1024px) {
       background-image: linear-gradient(to left, $gradient, $gradient),
-        url("/images/header/bg-big.jpg");
+        url('/images/header/bg-big.jpg');
     }
   }
   &__nav-wrapper {
@@ -66,7 +66,7 @@
 }
 
 .header__nav-link--active::after {
-  content: "";
+  content: '';
   position: absolute;
   display: block;
   bottom: -3px;
@@ -93,7 +93,7 @@
   }
 }
 .header__input-icon::before {
-  content: "";
+  content: '';
   position: absolute;
   display: inline-block;
   top: 5px;
@@ -101,7 +101,7 @@
   width: 12px;
   height: 12px;
 
-  background-image: url("/images/header/search2.svg");
+  background-image: url('/images/header/search2.svg');
   background-repeat: no-repeat;
 }
 
@@ -121,7 +121,7 @@
   font-weight: 400;
   text-align: left;
 }
-.button-wrapper {
+.header__filter-button-wrapper {
   display: flex;
   margin-left: auto;
   margin-right: auto;
@@ -136,15 +136,15 @@
 
 .lib-container {
   background-image: linear-gradient(to left, $gradient, $gradient),
-    url("../images/header/lib-bg-small.jpg");
+    url('../images/header/lib-bg-small.jpg');
 
   @media screen and (min-width: 768px) {
     background-image: linear-gradient(to left, $gradient, $gradient),
-      url("../images/header/lib-bg-medium.jpg");
+      url('../images/header/lib-bg-medium.jpg');
   }
   @media screen and (min-width: 1024px) {
     background-image: linear-gradient(to left, $gradient, $gradient),
-      url("../images/header/lib-bg-big.jpg");
+      url('../images/header/lib-bg-big.jpg');
   }
 }
 .header__thats-all-msg {

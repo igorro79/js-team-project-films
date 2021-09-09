@@ -14,12 +14,7 @@
 
       <ul class="header__nav list">
         <li class="header__nav-item">
-          <a
-            class="header__nav-link header__nav-link--active"
-            data-name="home"
-            href="#!"
-            >HOME</a
-          >
+          <a class="header__nav-link header__nav-link--active" data-name="home" href="#!">HOME</a>
         </li>
 
         <li class="header__nav-item">
@@ -64,28 +59,21 @@
         </li>
 
         <li class="header__nav-item">
-          <a
-            class="header__nav-link header__nav-link--active"
-            data-name="liba"
-            href="#!"
+          <a class="header__nav-link header__nav-link--active" data-name="liba" href="#!"
             >MY LIBRARY</a
           >
         </li>
       </ul>
     </div>
-    <div class="button-wrapper">
+    <div class="header__filter-button-wrapper">
       <button
         type="button"
-        class="
-          modal-button
-          header__button--right
-          modal-button--active
-          js-watched
-        "
+        data-name="Watched"
+        class="modal-button header__button--right modal-button--active js-watched"
       >
         Watched
       </button>
-      <button type="button" class="modal-button js-queue">Queue</button>
+      <button type="button" class="modal-button js-queue" data-name="Queue">Queue</button>
     </div>
   </div>
 </header>
