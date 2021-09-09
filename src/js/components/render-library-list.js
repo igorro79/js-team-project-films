@@ -3,6 +3,7 @@ import contentCardsTmp from '../../templates/content-grid.hbs';
 import { contentCardsRef } from '../content-grid.main';
 import loaderSpinner from './loader-spinner';
 import { onCardClick, insert } from './on-film-card';
+import localStorageApi from './localStorageApi';
 
 function onLibraryClick() {
   if (JSON.parse(localStorage.watched).length === 0) {
@@ -12,11 +13,14 @@ function onLibraryClick() {
 }
 
 function onLibraryBtnClick(event) {
-  if (event.target.dataset.name === 'Watched' || event.target.dataset.name === 'liba') {
-    renderLibContent(JSON.parse(localStorage.Watched), contentCardsRef);
-    console.log();
-  } else if (event.target.dataset.name === 'Queue')
-    renderLibContent(JSON.parse(localStorage.Queue), contentCardsRef);
+  let key = event.target.dataset.name;
+  if (key === 'Watched' || key === 'liba') {
+    console.log(localStorageApi.getMovies(key));
+    renderLibContent(localStorageApi.getMovies(key), contentCardsRef);
+  } else if (key === 'Queue') {
+    console.log(localStorageApi.getMovies(key));
+    renderLibContent(localStorageApi.getMovies(key), contentCardsRef);
+  }
 }
 
 async function renderLibContent(array, elemtRef) {

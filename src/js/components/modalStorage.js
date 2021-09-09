@@ -17,38 +17,38 @@ export const initStorageBtns = () => {
   const storageEl = document.querySelector('.lightbox .buttons-content');
   const movieId = document.querySelector('.lightbox').dataset.action;
   const movieStr = getMovie();
-  activateBtns();
+  // activateBtns();
   changeBtnName(refs.modalWatchedBtn, movieId);
   changeBtnName(refs.modalQueueBtn, movieId);
 
   function changeBtnName(button, id) {
     let listName = button.value;
-    console.dir(listName);
+
     id = id.toString();
     if (localStorageApi.checkMovie(listName, id)) {
       button.innerText = `DEL FROM ${listName}`;
-    } else if (localStorageApi.checkMovie(listName, id)) {
-      button.innerText(`DEL FROM ${listName}`);
+    } else {
+      button.innerText = `ADD TO ${listName}`;
     }
   }
 
   storageEl.addEventListener('click', onStorageBtnClick);
 
-  function activateBtns() {
-    movieStr.then(function (result) {
-      const watchedMovies = JSON.parse(localStorage.getItem('Watched'));
-      const queueMovies = JSON.parse(localStorage.getItem('Queue'));
-      console.log(watchedMovies.indexOf(result) !== -1);
-      if (watchedMovies.indexOf(result) !== -1) {
-        console.log('teste');
-        console.log(refs.modalWatchedBtn.classList);
-        refs.modalWatchedBtn.classList.add('content__btn--active');
-      }
-      if (queueMovies.indexOf(result) !== -1) {
-        refs.modalQueueBtn.classList.add('content__btn--active');
-      }
-    });
-  }
+  // function activateBtns() {
+  //   movieStr.then(function (result) {
+  //     const watchedMovies = JSON.parse(localStorage.getItem('Watched'));
+  //     const queueMovies = JSON.parse(localStorage.getItem('Queue'));
+  //     console.log(watchedMovies.indexOf(result) !== -1);
+  //     if (watchedMovies.indexOf(result) !== -1) {
+  //       console.log('teste');
+  //       console.log(refs.modalWatchedBtn.classList);
+  //       refs.modalWatchedBtn.classList.add('content__btn--active');
+  //     }
+  //     if (queueMovies.indexOf(result) !== -1) {
+  //       refs.modalQueueBtn.classList.add('content__btn--active');
+  //     }
+  //   });
+  // }
 
   async function getMovie() {
     apiService.movieId = movieId;
@@ -58,21 +58,24 @@ export const initStorageBtns = () => {
   }
 
   async function onStorageBtnClick(e) {
+    if (e.target.nodeName !== 'BUTTON') {
+      return;
+    }
     const storageKey = e.target.value;
-    console.log(movieStr);
-    // console.log(localStorageApi.checkMovie(storageKey, movieId.toString()));
-    let isActive = e.target.classList.contains('content__btn--active');
 
-    if (isActive) {
-      e.target.classList.remove('content__btn--active');
-    } else {
+    let present = await localStorageApi.checkMovie(storageKey, movieId);
+
+    // let isActive = e.target.classList.contains('content__btn--active');
+    if (present) {
       e.target.classList.add('content__btn--active');
+    } else {
+      e.target.classList.remove('content__btn--active');
     }
 
-    const action = !isActive ? 'add' : 'remove';
-
+    const action = !present ? 'add' : 'remove';
     localStorageApi.getMovies(storageKey);
     makeActionInStorage(storageKey, action);
+    changeBtnName(e.target, movieId);
   }
 
   async function makeActionInStorage(storageKey, action) {

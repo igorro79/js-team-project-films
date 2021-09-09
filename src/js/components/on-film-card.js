@@ -12,8 +12,8 @@ async function onCardClick(event, element) {
   apiService.movieId = event.target.dataset.id;
   const data = await apiService.fetchById();
   insert.innerHTML = filmCardsTmp(data);
-  insert.classList.add("is-open")
-  document.body.classList.add('modal-open')
+  insert.classList.add('is-open');
+  document.body.classList.add('modal-open');
 
   onCloseButtonClick();
   onBackdropClick();
@@ -33,29 +33,26 @@ function onBackdropClick() {
 }
 
 function onEscKeyPress() {
-
-  document.body.addEventListener("keyup", pressKey)
+  document.body.addEventListener('keyup', pressKey);
 }
-  
+
 function pressKey(e) {
-   const key = e.key;
-      if (key === "Escape") {
-        closeModal();
-      }
-    false;
+  const key = e.key;
+  if (key === 'Escape') {
+    closeModal();
+  }
+  false;
 }
 
 function closeModal() {
-  insert.classList.remove("is-open");
+  insert.classList.remove('is-open');
 
-   const closeButton = document.querySelector('[data-action="close-lightbox"]');
-  closeButton.removeEventListener("click", closeModal);
+  const closeButton = document.querySelector('[data-action="close-lightbox"]');
+  closeButton.removeEventListener('click', closeModal);
 
-  const closeBackdrop = document.querySelector(".lightbox__overlay");
- closeBackdrop.removeEventListener("click", closeModal);
- 
- document.body.removeEventListener("keyup", pressKey)
-  document.body.classList.remove('modal-open')
+  const closeBackdrop = document.querySelector('.lightbox__overlay');
+  closeBackdrop.removeEventListener('click', closeModal);
 
+  document.body.removeEventListener('keyup', pressKey);
+  document.body.classList.remove('modal-open');
 }
-

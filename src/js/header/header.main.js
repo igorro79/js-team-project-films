@@ -61,6 +61,8 @@ function onLibBtn(event) {
   refs.homePage.setAttribute('style', 'display: none');
   refs.libPage.removeAttribute('style', 'display: none');
   refs.contentFilterBtn.setAttribute('style', 'display: none');
+  refs.watchedBtn.classList.add('modal-button--active');
+  refs.queueBtn.classList.remove('modal-button--active');
 }
 
 function onInput(event) {
@@ -81,16 +83,14 @@ function onInput(event) {
 }
 
 function onWatched(event) {
-  console.log(event.target);
   onLibraryBtnClick(event);
   refs.watchedBtn.classList.add('modal-button--active');
   refs.queueBtn.classList.remove('modal-button--active');
 }
 
 function onQueue(event) {
-  console.log(event.target);
   onLibraryBtnClick(event);
-  contentCardsRef.innerHTML = '<h2>List to watch</h2>';
+  // contentCardsRef.innerHTML = '<h2>List to watch</h2>';
   refs.watchedBtn.classList.remove('modal-button--active');
   refs.queueBtn.classList.add('modal-button--active');
 }
