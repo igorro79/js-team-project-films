@@ -21,6 +21,10 @@
 .insert.is-open {
   opacity: 1;
   pointer-events: initial;
+
+}
+body.modal-open {
+  overflow: hidden;
 }
 
 .lightbox__overlay {
@@ -120,7 +124,8 @@ text-transform: uppercase;
 .item-info-gen{
   font-weight: 500;
 font-size: 12px;
-line-height: 1.33
+line-height: 1.33;
+word-wrap: break-word;
 }
 .lightbox__list__item:not(:last-child) {
     margin-bottom: 10px;
@@ -156,6 +161,10 @@ border-radius: 5px;
     margin-top: 20px;
   margin-bottom: 20px;
 }
+.buttons-content .content__btn{
+      min-width: 112px;
+  margin-inline: 0;
+}
 .content__btn:not(:last-child) {
   margin-right: 15px;
 }
@@ -173,18 +182,25 @@ border-radius: 5px;
 .lightbox__image{
   margin-right: 30px;
 }
-
+.buttons-content .content__btn{
+      min-width: 125px;
+}
 .buttons-content:not(:last-child){
   margin-left: 15px;
 }
 }
 @media screen and (min-width: 1024px) {
+.lightbox__content{
+  max-width: 1024px;
+}
   .lightbox__title{
     font-weight: 500;
 font-size: 30px;
 line-height: 1.167;
-max-width: 1024px
   }
+  .buttons-content .content__btn{
+      min-width: 136px;
+}
   .lightbox__button{
      position: absolute;
     display: inline-flex;

@@ -11,13 +11,13 @@ async function onCardClick(event, element) {
   apiService.movieId = event.target.dataset.id;
   const data = await apiService.fetchById();
   insert.innerHTML = filmCardsTmp(data);
+  insert.classList.add("is-open")
+  document.body.classList.add('modal-open')
 
-  insert.classList.add("is-open");
   onCloseButtonClick();
   onBackdropClick();
   onEscKeyPress();
 }
-
 export { onCardClick, insert };
 
 function onCloseButtonClick() {
@@ -31,33 +31,27 @@ function onBackdropClick() {
 }
 
 function onEscKeyPress() {
-  document.body.addEventListener(
-    "keyup",
-    function (e) {
-      const key = e.key;
+  document.body.addEventListener("keyup", pressKey)
+}
+  
+function pressKey(e) {
+   const key = e.key;
       if (key === "Escape") {
         closeModal();
       }
-    },
-    false
-  );
+    false;
 }
 
 function closeModal() {
   insert.classList.remove("is-open");
+
+   const closeButton = document.querySelector('[data-action="close-lightbox"]');
+  closeButton.removeEventListener("click", closeModal);
+
+  const closeBackdrop = document.querySelector(".lightbox__overlay");
+ closeBackdrop.removeEventListener("click", closeModal);
+ 
+ document.body.removeEventListener("keyup", pressKey)
+  document.body.classList.remove('modal-open')
 }
 
-// if (check('watched')) {
-//    btnWatched.classList.add('content__btn--active');
-//     btnWatched.textContent = 'Remove';
-//   } else if (!check('watched')) {
-//     btnWatched.classList.remove('content__btn--active');
-//     btnWatched.textContent = `ADD TO WATCHED`;
-//   }
-//   if (check('queue')) {
-//     BtnQueue.classList.add('content__btn--active');
-//     BtnQueue.textContent = 'Remove';
-//   } else if (!check('queue')) {
-//     BtnQueue.classList.remove('content__btn--active');
-//     BtnQueue.textContent = `ADD TO QUEUE`;
-//   }
