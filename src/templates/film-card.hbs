@@ -1,5 +1,5 @@
 ​
-<div class="lightbox js-lightbox">
+<div class="lightbox js-lightbox", data-action="{{id}}">
   ​
   <div class="lightbox__overlay"></div>
   ​
@@ -51,14 +51,11 @@
       <p class="lightbox__text">{{overview}}
       </p>
       <div class="buttons-content">
-      <button
-        class="content__btn content__btn--active"
-        type="button"
-        data-action="btn-to-wached"
-      >add to Watched</button>
-      <button class="content__btn" type="button" data-action="btn-to-queue">add
-        to queue</button>
-        </div>
+        <button class="content__btn js-modal-watched" type="button" data-action="btn-to-wached" value="Watched">add to
+          Watched</button>
+        <button class="content__btn js-modal-queue" type="button" data-action="btn-to-queue" value="Queue">add
+          to queue</button>
+      </div>
     </div>
     ​
   </div>

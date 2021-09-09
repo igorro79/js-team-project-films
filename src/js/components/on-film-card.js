@@ -1,50 +1,52 @@
-import filmCardsTmp from "../../templates/film-card.hbs";
-import ApiService from "../api-service/api-service";
+import filmCardsTmp from '../../templates/film-card.hbs';
+import ApiService from '../api-service/api-service';
+import { initStorageBtns } from './modalStorage';
 
-const insert = document.querySelector(".insert");
+const insert = document.querySelector('.insert');
 const apiService = new ApiService();
 
 async function onCardClick(event, element) {
-  if (event.target.nodeName !== "A") {
+  if (event.target.nodeName !== 'A') {
     return;
   }
   apiService.movieId = event.target.dataset.id;
   const data = await apiService.fetchById();
   insert.innerHTML = filmCardsTmp(data);
 
-  insert.classList.add("is-open");
+  insert.classList.add('is-open');
   onCloseButtonClick();
   onBackdropClick();
   onEscKeyPress();
+  initStorageBtns();
 }
 
 export { onCardClick, insert };
 
 function onCloseButtonClick() {
   const closeButton = document.querySelector('[data-action="close-lightbox"]');
-  closeButton.addEventListener("click", closeModal);
+  closeButton.addEventListener('click', closeModal);
 }
 
 function onBackdropClick() {
-  const closeBackdrop = document.querySelector(".lightbox__overlay");
-  closeBackdrop.addEventListener("click", closeModal);
+  const closeBackdrop = document.querySelector('.lightbox__overlay');
+  closeBackdrop.addEventListener('click', closeModal);
 }
 
 function onEscKeyPress() {
   document.body.addEventListener(
-    "keyup",
+    'keyup',
     function (e) {
       const key = e.key;
-      if (key === "Escape") {
+      if (key === 'Escape') {
         closeModal();
       }
     },
-    false
+    false,
   );
 }
 
 function closeModal() {
-  insert.classList.remove("is-open");
+  insert.classList.remove('is-open');
 }
 
 // if (check('watched')) {
