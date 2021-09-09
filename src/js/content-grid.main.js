@@ -52,7 +52,7 @@ const paginationContainerRef = document.querySelector('.pagination');
 const pagElContainerRef = paginationContainerRef.querySelector('.pagination-container');
 
 let start = 1;
-let totalPages = 20;
+let totalPages = 15;
 let currentPage = 1;
 let interval = 5;
 let end = totalPages;
@@ -103,6 +103,7 @@ function pagShowStartInterval(currentPage, start, interval) {
       setDefCurrentPage(currentPage);
     } else {
       child.style.display = 'flex';
+      setDefCurrentPage(currentPage);
     }
   }
 }
@@ -179,7 +180,7 @@ function showInterval(currentPage) {
         child.style.display = 'none';
       }
     }
-  } else if (currentPage >= end - 2) {
+  } else if (currentPage <= end - 2) {
     pagShowEndInterval(currentPage, end, interval);
     setPageState(currentPage);
   }
