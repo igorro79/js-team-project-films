@@ -17,7 +17,8 @@ export default function createContentMarkup(element, collection, template) {
     allWeFoundWarning.removeAttribute('style', 'display: none');
     body.addEventListener('click', removeWarning);
   }
-  element.innerHTML = template;
+
+  element.insertAdjacentHTML('beforeend', template);  
 }
 
 function removeWarning() {

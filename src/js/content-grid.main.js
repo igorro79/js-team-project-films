@@ -37,9 +37,11 @@ async function onContentBtnClick(e) {
     return;
   }
   if (e.target.dataset.tag === contentBtnDefDataTagValue) {
+    contentCardsRef.innerHTML = '';
     renderContent(apiService.fetchTrend({}), contentCardsRef);
     setBtnState(contentBtnListRef, contentBtnActiveSelector);
   } else {
+    contentCardsRef.innerHTML = '';
     renderContent(apiService.fetchPopular({}), contentCardsRef);
     setBtnState(contentBtnListRef, contentBtnActiveSelector);
   }

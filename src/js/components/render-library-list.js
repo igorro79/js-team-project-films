@@ -25,6 +25,7 @@ function onLibraryBtnClick(event) {
   let key = event.target.dataset.name;
   const list = localStorageApi.getMovies(key);
   if (list.length > 0) {
+    contentCardsRef.innerHTML = '';
     renderLibContent(localStorageApi.getMovies(key), contentCardsRef);
   } else {
     contentCardsRef.innerHTML = `<li><h2>${key} list is empty</h2></li>`;
@@ -35,6 +36,7 @@ async function renderLibContent(array, elemtRef) {
   loaderSpinner.loaderShow(elemtRef);
   try {
     const collection = array;
+    contentCardsRef.innerHTML = '';
     createContentMarkup(elemtRef, collection, contentCardsTmp(collection));
     updateGenresInfo();
     updateYearinfo();
