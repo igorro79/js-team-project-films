@@ -1,16 +1,16 @@
-import getSavedGenres from "./get-saved-genres";
+import getSavedGenres from './get-saved-genres';
 export default function updateGenresInfo() {
   let info = getSavedGenres();
 
-  const genresIdRefs = document.querySelectorAll(".content__genres");
+  const genresIdRefs = document.querySelectorAll('.content__genres');
 
-  genresIdRefs.forEach((genreIdRef) => {
+  genresIdRefs.forEach(genreIdRef => {
     let result = [];
-    let genreName = "";
-    let genreIDArr = genreIdRef.textContent.split(",");
+    let genreName = '';
+    let genreIDArr = genreIdRef.textContent.trim().split(',');
 
-    info.forEach((savedGenre) => {
-      genreIDArr.filter((genreId) => {
+    info.forEach(savedGenre => {
+      genreIDArr.filter(genreId => {
         if (Number(savedGenre.id) === Number(genreId)) {
           return result.push(savedGenre.name);
         }
@@ -18,11 +18,11 @@ export default function updateGenresInfo() {
     });
 
     if (result.length > 2) {
-      genreName = result.slice(0, 2).join(", ");
-      genreIdRef.textContent = `${genreName}, Other`;
+      genreName = result.slice(0, 2).join(', ');
+      genreIdRef.innerText = `${genreName}, Other`;
     } else {
-      genreName = result.join(", ");
-      genreIdRef.textContent = `${genreName}`;
+      genreName = result.join(', ');
+      genreIdRef.innerText = `${genreName}`;
     }
   });
 }

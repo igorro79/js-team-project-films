@@ -1,5 +1,8 @@
 import createContentMarkup from './create-markup';
-import contentCardsTmp from '../../templates/content-grid.hbs';
+import contentCardsTmp from '../../templates/content-my-library.hbs';
+import updateGenresInfo from './update-genres-info';
+import updateRating from './update-rating';
+import updateYearinfo from './update-year-info';
 import { contentCardsRef } from '../content-grid.main';
 import loaderSpinner from './loader-spinner';
 // import { onCardClick, insert } from './on-film-card';
@@ -36,6 +39,9 @@ async function renderLibContent(array, elemtRef) {
   try {
     const collection = array;
     createContentMarkup(elemtRef, collection, contentCardsTmp(collection));
+    updateGenresInfo();
+    updateYearinfo();
+    updateRating();
     loaderSpinner.loaderHide(elemtRef);
   } catch (error) {
     console.log(error);
