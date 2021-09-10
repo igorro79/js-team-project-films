@@ -6,6 +6,7 @@ export default async function pageInit(api, elemtRef) {
   try {
     await getGenres(api);
     renderContent(api.fetchTrend({}), elemtRef);
+    elemtRef.innerHTML = '';
     // initStorage();
   } catch (error) {}
 }

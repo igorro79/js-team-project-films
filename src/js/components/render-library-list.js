@@ -1,5 +1,8 @@
 import createContentMarkup from './create-markup';
-import contentCardsTmp from '../../templates/content-grid.hbs';
+import contentCardsTmp from '../../templates/content-my-library.hbs';
+import updateGenresInfo from './update-genres-info';
+import updateRating from './update-rating';
+import updateYearinfo from './update-year-info';
 import { contentCardsRef } from '../content-grid.main';
 import loaderSpinner from './loader-spinner';
 // import { onCardClick, insert } from './on-film-card';
@@ -22,6 +25,7 @@ function onLibraryBtnClick(event) {
   let key = event.target.dataset.name;
   const list = localStorageApi.getMovies(key);
   if (list.length > 0) {
+    contentCardsRef.innerHTML = '';
     renderLibContent(localStorageApi.getMovies(key), contentCardsRef);
   } else {
     contentCardsRef.innerHTML = `<li><h2>${key} list is empty</h2></li>`;
@@ -32,7 +36,11 @@ async function renderLibContent(array, elemtRef) {
   loaderSpinner.loaderShow(elemtRef);
   try {
     const collection = array;
+    contentCardsRef.innerHTML = '';
     createContentMarkup(elemtRef, collection, contentCardsTmp(collection));
+    updateGenresInfo();
+    updateYearinfo();
+    updateRating();
     loaderSpinner.loaderHide(elemtRef);
   } catch (error) {
     console.log(error);
