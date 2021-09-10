@@ -1,8 +1,6 @@
 export default class LocalStorageApi {
   constructor() {
-    // this.searchQuery = "";
-    // this.movieId = "";
-    // this.pageNumber = 1;
+    //  this.test = null
   }
 
   initStorage() {
@@ -22,20 +20,19 @@ export default class LocalStorageApi {
     return [];
   }
   addMovie(key, value) {
-    const dataFromLocalStorage = this.load(key);
-    // if(dataFromLocalStorage)
+    let dataFromLocalStorage = this.load(key);
     this.save(key, [value, ...dataFromLocalStorage]);
   }
 
   removeMovie(key, value) {
-    const dataFromLocalStorage = this.load(key);
-    // console.log(dataFromLocalStorage);
-    const valueIndex = dataFromLocalStorage.indexOf(value);
-    // console.log(valueIndex);
-
-    dataFromLocalStorage.splice(valueIndex, 1);
-
-    this.save(key, dataFromLocalStorage);
+    let dataFromLocalStorage = this.load(key);
+    for (let obj of dataFromLocalStorage) {
+      if (obj.id === value.id) {
+        const valueIndex = dataFromLocalStorage.indexOf(obj);
+        dataFromLocalStorage.splice(valueIndex, 1);
+        this.save(key, dataFromLocalStorage);
+      }
+    }
   }
 
   init(key) {

@@ -14,7 +14,6 @@ localStorageApi.initStorage();
 
 function onLibraryClick() {
   const list = localStorageApi.getMovies('Watched');
-  // console.log(list);
   if (list.length <= 0) {
     contentCardsRef.innerHTML = `<li><h2>Watched list is empty</h2></li>`;
   } else {
@@ -25,9 +24,7 @@ function onLibraryClick() {
 function onLibraryBtnClick(event) {
   let key = event.target.dataset.name;
   const list = localStorageApi.getMovies(key);
-  console.log(list);
   if (list.length > 0) {
-    // console.log(localStorageApi.getMovies(key));
     renderLibContent(localStorageApi.getMovies(key), contentCardsRef);
   } else {
     contentCardsRef.innerHTML = `<li><h2>${key} list is empty</h2></li>`;
