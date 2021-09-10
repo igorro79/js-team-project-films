@@ -26,6 +26,7 @@ export const refs = {
   contentFilterBtn: document.querySelector('.content__btn__list'),
   headerNav: document.querySelectorAll('.header__nav-wrapper'),
   badSearchMsg: document.querySelector('.header__warning'),
+  lastClickedFilterBtn: null,
 };
 
 refs.headerNav[0].addEventListener('click', onNavButton);
@@ -34,7 +35,7 @@ refs.searchField.addEventListener('input', debounce(onInput, 1000));
 
 function onNavButton(event) {
   event.preventDefault;
-  let value = event.target.dataset.name;
+  let value = event.target.dataset.index;
   if (value === 'home') {
     onHomeBtn(event);
   } else if (value === 'liba') {
@@ -58,6 +59,7 @@ function onHomeBtn() {
 }
 
 function onLibBtn(event) {
+  refs.lastClickedFilterBtn = event.target.dataset.name;
   refs.watchedBtn.addEventListener('click', onWatched);
   refs.queueBtn.addEventListener('click', onQueue);
   onLibraryClick(event);
@@ -86,14 +88,15 @@ function onInput(event) {
 }
 
 function onWatched(event) {
+  refs.lastClickedFilterBtn = event.target.dataset.name;
   onLibraryBtnClick(event);
   refs.watchedBtn.classList.add('modal-button--active');
   refs.queueBtn.classList.remove('modal-button--active');
 }
 
 function onQueue(event) {
+  refs.lastClickedFilterBtn = event.target.dataset.name;
   onLibraryBtnClick(event);
-  // contentCardsRef.innerHTML = '<h2>List to watch</h2>';
   refs.watchedBtn.classList.remove('modal-button--active');
   refs.queueBtn.classList.add('modal-button--active');
 }
