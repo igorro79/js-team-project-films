@@ -40,11 +40,11 @@
         </li>
         <li class='lightbox__list__item'>
           <p class='item__list-title'>Genre</p>
-          {{#each genres}}
-            <span class='item-info-gen'>
-              {{this.name}}{{#unless @last}}, {{/unless}}
-            </span>
-          {{/each}}
+
+          <span class='item-info-gen'>
+            {{#each genres}}{{#if @first}}{{this.name}}{{/if}}{{/each}}
+          </span>
+
         </li>
       </ul>
       <h3 class='lightbox__about'>About</h3>
