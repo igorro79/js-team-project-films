@@ -20,6 +20,8 @@ export default function updateGenresInfo() {
     if (result.length > 2) {
       genreName = result.slice(0, 2).join(', ');
       genreIdRef.innerText = `${genreName}, Other`;
+    } else if (result.length === 0) {
+      genreIdRef.innerText = `Other`;
     } else {
       genreName = result.join(', ');
       genreIdRef.innerText = `${genreName}`;
