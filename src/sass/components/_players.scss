@@ -1,11 +1,16 @@
 .team {
-  background-color: grey;
+  background-color: $light-grey;
+  &__title {
+    color: $black-color;
+    text-align: center;
+    margin-bottom: 30px;
+  }
 }
 .container-thumb {
   margin-left: auto;
   margin-right: auto;
-  padding-left: 20px;
-  padding-right: 20px;
+  padding: 20px;
+
   max-width: 100%;
   @media screen and (min-width: 480px) {
     max-width: 480px;
@@ -18,27 +23,48 @@
   }
 }
 
-.team-list__card:not(:last-child) {
-  @media screen and (max-width: 767px) {
-    margin-bottom: 30px;
-  }
-}
+// .team-list__card:not(:last-child) {
+//   @media screen and (max-width: 767px) {
+//     margin-bottom: 30px;
+//   }
+// }
 
 .team-list {
+  display: grid;
+  max-width: 100%;
+  grid-template-columns: repeat(auto-fill, minmax(274px, 1fr));
+  grid-auto-rows: max-content;
+  grid-gap: 30px;
+  align-items: stretch;
+  justify-content: center;
+
+  @media screen and (min-width: 320px) and (max-width: 767px) {
+    row-gap: 20px;
+  }
+  @media screen and (min-width: 768px) and (max-width: 1023px) {
+    min-width: 768px;
+  }
+  @media screen and (min-width: 1024px) {
+    min-width: 886px;
+  }
+
   &__card {
+    max-width: 100%;
+
     box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
       0px 2px 1px rgba(0, 0, 0, 0.2);
   }
 
   &__label {
     background-color: #ffffff;
-    padding: 30px 0 24px 0;
+    padding: 20px 0;
 
     border-radius: 0px 0px 4px 4px;
   }
 
   &__name {
-    margin-bottom: 10px;
+    color: $black-color;
+    margin-bottom: 20px;
     font-weight: 500;
     font-size: 16px;
     line-height: 1.18;
@@ -52,34 +78,10 @@
     line-height: 1.18px;
     text-align: center;
     letter-spacing: 0.03em;
-    color: #757575;
-  }
-  &__image {
-    height: auto;
-
-    max-width: 100%;
-  }
-}
-.team-list__card:hover {
-  transform: scale(1.03);
-}
-
-.team-list {
-  @media screen and (min-width: 768px) {
-    display: flex;
-    flex-wrap: wrap;
-    margin: -15px;
-  }
-}
-
-.team-list__card {
-  @media screen and (min-width: 768px) {
-    margin: 15px;
-
-    flex-basis: calc((px / 3)-15px);
+    color: $accent1;
   }
 
-  @media screen and (min-width: 1024px) {
-    flex-basis: calc((899px / 3) - 15px);
+  .team-list__card:hover {
+    transform: scale(1.03);
   }
 }

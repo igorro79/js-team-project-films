@@ -64,7 +64,7 @@
 }
 .close:after {
   display: block;
-  border: 2px solid #cfd8dc;
+  border: 2px solid black;
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;
   border-radius: 50%;
@@ -80,18 +80,14 @@
 /* кнопка закрытия при наведении */
 
 .close:hover:after {
-  border-color: #fff;
-  color: #fff;
+  border-color: grey;
+  color: black;
   -webkit-transform: scale(1);
   -moz-transform: scale(1);
   -ms-transform: scale(1);
   transform: scale(1);
 }
 /* варианты фонвой заливки модального блока */
-
-// .cyan {
-//   background: #0097a7 !important;
-// }
 
 /* движуха при появлении блоков с содержанием */
 
