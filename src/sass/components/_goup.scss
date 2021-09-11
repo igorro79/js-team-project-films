@@ -3,7 +3,7 @@
   align-items: center;
   justify-content: center;
   background-color: $accent8;
-  border: 1px solid $black-color;
+  border: 1px solid $accent8;
   border-radius: 5px;
   width: 50px;
   height: 50px;
@@ -13,19 +13,20 @@
   right: 14px;
   bottom: 14px;
   opacity: 0.7;
-  transition: background-color 200ms ease, border-color 200ms ease, opacity 200ms ease;
-  &:hover {
-    opacity: 1;
-    background-color: $accent8;
-    border-color: $accent8;
+  transition: opacity 200ms ease;
+
+  @media screen and (max-width: 767px) {
+    width: 40px;
+    height: 40px;
+    right: 10px;
+    bottom: 10px;
   }
 
-  &:hover .goup {
-    fill: $white-color;
+  &:hover {
+    opacity: 1;
   }
 }
 
 .goup {
-  fill: $black-color;
-  transition: fill 200ms ease;
+  fill: $white-color;
 }
