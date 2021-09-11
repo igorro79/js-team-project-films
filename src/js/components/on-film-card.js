@@ -29,6 +29,10 @@ async function onCardClick(event, element) {
   currentMovieId = filmData.id;
 
   insert.innerHTML = filmCardsTmp(filmData);
+  const genreInfoRef = insert.querySelector('.item-info-gen');
+  if (genreInfoRef.innerHTML.trim() === '') {
+    genreInfoRef.innerHTML = 'Other';
+  }
   insert.classList.add('is-open');
   document.body.classList.add('modal-open');
 
