@@ -192,8 +192,6 @@ function loadMoreLib(e) {
     }
   }
 
-  console.log(key);
-
   incementLibPage();
   renderLibContent(localStorageApi.getMovies(key), contentCardsRef);
 }
