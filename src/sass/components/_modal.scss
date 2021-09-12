@@ -4,7 +4,7 @@
 
 /* Lightbox */
 .insert {
-  display: flex;
+  // display: flex;
   align-items: center;
   justify-content: center;
   position: fixed;
@@ -16,6 +16,7 @@
   pointer-events: none;
   overflow: auto;
   padding: 30px 0;
+  z-index: 100;
 }
 
 .insert.is-open {
@@ -38,7 +39,6 @@ body.modal-open {
   position: fixed;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
   background: #fff;
   padding: 50px 30px;
   transform: translate(-50%, -50%);
