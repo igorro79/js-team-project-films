@@ -1,4 +1,4 @@
-import { contentCardsRef } from '../content-grid.main';
+import { contentCardsRef } from '../header/header.main';
 import filmCardsTmp from '../../templates/film-card.hbs';
 import ApiService from '../api-service/api-service';
 import LocalStorageApi from './localStorageApi';
@@ -81,6 +81,7 @@ function renewPageContent(key, refToInput) {
   if (!refs.libPage.hasAttribute('style')) {
     const list = localStorageApi.getMovies(key);
     if (list.length > 0) {
+      contentCardsRef.innerHTML = '';
       renderLibContent(localStorageApi.getMovies(key), refToInput);
     } else {
       contentCardsRef.innerHTML = `<li class='empty-list'><h2>${key} list is empty</h2></li>`;

@@ -1,24 +1,33 @@
 import pageInit from './page-init';
 import ApiService from '../api-service/api-service';
-import { contentCardsRef, contentBtnListRef } from '../content-grid.main';
+import LoadMoreBtn from './load-more-btn';
+import { contentCardsRef, contentBtnListRef } from '../header/header.main';
 
 let badSearchMsg = document.querySelector('.header__warning');
 let body = document.querySelector('BODY');
 const apiService = new ApiService();
+const loadMoreBtn = new LoadMoreBtn({
+  selector: '.js-load-more',
+  hidden: true,
+});
 let allWeFoundWarning = document.querySelector('.header__thats-all-msg');
 
 export default function createContentMarkup(element, collection, template) {
-  if (collection.total_results === 0 || collection.length === 0) {
+  loadMoreBtn.enable();
+
+  if (collection?.total_results === 0) {
     badSearchMsg.removeAttribute('style', 'display: none');
     body.addEventListener('click', removeWarning);
     pageInit(apiService, contentCardsRef);
     contentBtnListRef.removeAttribute('style', 'display: none');
-  } else if (collection.total_results < 20 || collection.length < 20) {
+    loadMoreBtn.hide();
+  } else if (collection?.total_results < 20 || collection?.page === collection?.total_pages) {
     allWeFoundWarning.removeAttribute('style', 'display: none');
     body.addEventListener('click', removeWarning);
+    loadMoreBtn.disable();
   }
 
-  element.insertAdjacentHTML('beforeend', template);  
+  element.insertAdjacentHTML('beforeend', template);
 }
 
 function removeWarning() {
