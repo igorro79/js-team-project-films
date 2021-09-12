@@ -4,7 +4,7 @@ import ApiService from '../api-service/api-service';
 import LocalStorageApi from './localStorageApi';
 import { renderLibContent, onLibraryBtnClick } from './render-library-list';
 import { refs } from '../header/header.main';
-export { onCardClick, insert };
+export { onCardClick, insert, onCloseButtonClick, onBackdropClick, onEscKeyPress, closeModal };
 
 const insert = document.querySelector('.insert');
 const apiService = new ApiService();
