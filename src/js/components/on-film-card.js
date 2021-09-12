@@ -4,7 +4,16 @@ import ApiService from '../api-service/api-service';
 import LocalStorageApi from './localStorageApi';
 import { renderLibContent, onLibraryBtnClick } from './render-library-list';
 import { refs } from '../header/header.main';
-export { onCardClick, insert, onCloseButtonClick, onBackdropClick, onEscKeyPress, closeModal };
+export {
+  onCardClick,
+  insert,
+  onCloseButtonClick,
+  onBackdropClick,
+  onEscKeyPress,
+  closeModal,
+  // onTopBtnCheckAttributeOff,
+  // onTopBtnCheckAttributeOn,
+};
 
 const onTop = document.querySelector('.goup__btn');
 const insert = document.querySelector('.insert');
@@ -39,7 +48,6 @@ async function onCardClick(event, element) {
 
   const buttonsList = document.querySelector('.buttons-content');
   buttonsList.addEventListener('click', onAddButton);
-  onTopBtnCheckAttributeOff();
 
   buttonW = buttonsList.children[0];
   buttonQ = buttonsList.children[1];
@@ -57,21 +65,6 @@ function checkFilmLibBtnStat(filmId, button) {
   let filmList = button.value;
   if (localStorageApi.checkMovie(filmList, filmId)) {
     button.innerHTML = `del from ${filmList}`;
-  }
-}
-
-function onTopBtnCheckAttributeOff() {
-  if (!onTop.hasAttribute('style', 'display: none')) {
-    onTopActive = true;
-    onTop.setAttribute('style', 'display: none');
-  }
-}
-function onTopBtnCheckAttributeOn() {
-  if ((onTopActive = true)) {
-    onTopActive = false;
-    onTop.removeAttribute('style', 'display: none');
-  } else {
-    onTop.setAttribute('style', 'display: none');
   }
 }
 
@@ -141,8 +134,6 @@ function closeModal() {
 
   document.body.removeEventListener('keyup', pressKey);
   document.body.classList.remove('modal-open');
-
-  onTopBtnCheckAttributeOn();
 }
 
 // ==========перевіряє інфу карті фільма в модальному вікні та оновлює її до дизайну========
