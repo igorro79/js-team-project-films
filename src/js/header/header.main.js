@@ -124,6 +124,7 @@ function onLibBtn(event) {
   loadMoreBtn.refs.button.removeEventListener('click', loadMorePopular);
   loadMoreBtn.refs.button.removeEventListener('click', loadMoreSearch);
   contentCardsRef.innerHTML = '';
+  resetLibPage();
   onLibraryClick(event);
   refs.homePage.setAttribute('style', 'display: none');
   refs.libPage.removeAttribute('style', 'display: none');
