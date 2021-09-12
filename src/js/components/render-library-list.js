@@ -66,7 +66,7 @@ async function renderLibContent(array, elemtRef) {
     if (libPage === libTotalPages) {
       loadMoreBtn.disable();
     }
-    console.log(libPage, libTotalPages);
+
     loaderSpinner.loaderHide(elemtRef);
   } catch (error) {
     console.log(error);
