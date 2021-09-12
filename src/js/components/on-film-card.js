@@ -2,7 +2,7 @@ import { contentCardsRef } from '../header/header.main';
 import filmCardsTmp from '../../templates/film-card.hbs';
 import ApiService from '../api-service/api-service';
 import LocalStorageApi from './localStorageApi';
-import { renderLibContent, onLibraryBtnClick } from './render-library-list';
+import { renderLibContent, onLibraryBtnClick, resetLibPage } from './render-library-list';
 import { refs } from '../header/header.main';
 export { onCardClick, insert };
 
@@ -82,6 +82,7 @@ function renewPageContent(key, refToInput) {
     const list = localStorageApi.getMovies(key);
     if (list.length > 0) {
       contentCardsRef.innerHTML = '';
+      resetLibPage();
       renderLibContent(localStorageApi.getMovies(key), refToInput);
     } else {
       contentCardsRef.innerHTML = `<li class='empty-list'><h2>${key} list is empty</h2></li>`;
