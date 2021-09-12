@@ -12,7 +12,7 @@ footer {
     }
   }
   &__text {
-      @media screen and(min-width:320px) and (max-width:767px) {
+    @media screen and(min-width:320px) and (max-width: 767px) {
       font-size: 14px;
       line-height: 1.17;
       justify-content: center;
@@ -30,17 +30,15 @@ footer {
     color: $accent8;
     margin: 0 5px;
   }
- 
 }
-.comand{
- @media screen and(min-width:320px){
-      font-size: 14px;
-     }
-   margin-left: 5px;
-   color: $footer-text;
-   font-size: 16px;
-   font-weight: 400;
-   font-style: normal;
-   text-decoration: underline;
-  
+.team {
+  @media screen and(min-width:320px) {
+    font-size: 14px;
+  }
+  margin-left: 5px;
+  color: $footer-text;
+  font-size: 16px;
+  font-weight: 400;
+  font-style: normal;
+  text-decoration: underline;
 }
