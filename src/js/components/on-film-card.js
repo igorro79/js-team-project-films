@@ -1,4 +1,4 @@
-import { contentCardsRef } from '../content-grid.main';
+import { contentCardsRef } from '../header/header.main';
 import filmCardsTmp from '../../templates/film-card.hbs';
 import ApiService from '../api-service/api-service';
 import LocalStorageApi from './localStorageApi';

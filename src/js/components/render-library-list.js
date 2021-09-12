@@ -3,7 +3,7 @@ import contentCardsTmp from '../../templates/content-my-library.hbs';
 import updateGenresInfo from './update-genres-info';
 import updateRating from './update-rating';
 import updateYearinfo from './update-year-info';
-import { contentCardsRef } from '../content-grid.main';
+import { contentCardsRef } from '../header/header.main';
 import loaderSpinner from './loader-spinner';
 // import { onCardClick, insert } from './on-film-card';
 import LocalStorageApi from './localStorageApi';

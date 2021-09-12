@@ -1,14 +1,8 @@
 import ApiService from '../api-service/api-service';
 import pageInit from '../components/page-init';
+import renderContent from '../components/render-content';
 import { setBtnState, setBtnDefaultState } from '../components/set-btn-state';
 
-import {
-  contentCardsRef,
-  contentBtnListRef,
-  contentBtnDefDataTag,
-  contentBtnDefDataTagValue,
-  contentBtnActiveSelector,
-} from '../content-grid.main';
 import { onLibraryClick, onLibraryBtnClick } from '../components/render-library-list';
 import pageOnSearch from '../components/on-search';
 import LocalStorageApi from '../components/localStorageApi';
@@ -16,6 +10,45 @@ import LocalStorageApi from '../components/localStorageApi';
 const localStorageApi = new LocalStorageApi();
 const debounce = require('lodash/debounce');
 const apiService = new ApiService();
+
+//=================================================//
+export const contentCardsRef = document.querySelector('.content__cards');
+export const contentBtnListRef = document.querySelector('.content__btn__list');
+
+const contentBtnActiveSelector = 'content__btn--active';
+const contentBtnDefDataTag = 'data-tag';
+const contentBtnDefDataTagValue = 'trend';
+//=================================================//
+
+//================================================//
+pageInit(apiService, contentCardsRef);
+
+setBtnDefaultState(
+  contentBtnListRef,
+  contentBtnDefDataTag,
+  contentBtnDefDataTagValue,
+  contentBtnActiveSelector,
+);
+
+contentBtnListRef.addEventListener('click', onContentBtnClick);
+
+async function onContentBtnClick(e) {
+  e.preventDefault();
+  if (e.target.nodeName !== 'BUTTON') {
+    return;
+  }
+  if (e.target.dataset.tag === contentBtnDefDataTagValue) {
+    contentCardsRef.innerHTML = '';
+    renderContent(apiService.fetchTrend({}), contentCardsRef);
+    setBtnState(contentBtnListRef, contentBtnActiveSelector);
+  } else {
+    contentCardsRef.innerHTML = '';
+    renderContent(apiService.fetchPopular({}), contentCardsRef);
+    setBtnState(contentBtnListRef, contentBtnActiveSelector);
+  }
+}
+
+//================================================//
 
 export const refs = {
   searchField: document.querySelector('.js-input'),
