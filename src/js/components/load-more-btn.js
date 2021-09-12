@@ -15,10 +15,12 @@ export default class LoadMoreBtn {
 
   enable() {
     this.refs.button.disabled = false;
+    this.refs.button.textContent = 'load more...';
   }
 
   disable() {
     this.refs.button.disabled = true;
+    this.refs.button.textContent = 'that`s all';
   }
 
   show() {
