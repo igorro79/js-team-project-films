@@ -8,6 +8,7 @@ teamLink.addEventListener('click', onTeamClick);
 
 function onTeamClick(event) {
   insert.innerHTML = teamCardTpl({});
+  // insert.innerHTML = teamCardTpl({});
   insert.classList.add('is-open');
   document.body.classList.add('modal-open');
 
