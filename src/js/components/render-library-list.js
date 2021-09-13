@@ -33,6 +33,13 @@ function onLibraryClick() {
 
 function onLibraryBtnClick(event) {
   resetLibPage();
+  if (window.innerWidth < 768) {
+    setCardsPerPage(4);
+  } else if (window.innerWidth >= 768 && window.innerWidth < 1024) {
+    setCardsPerPage(8);
+  } else if (window.innerWidth >= 1024) {
+    defCardsPerPage();
+  }
   let key = event.target.dataset.name;
   const list = localStorageApi.getMovies(key);
   if (list.length > 0) {
@@ -81,4 +88,20 @@ function resetLibPage() {
   libPage = 1;
 }
 
-export { onLibraryClick, onLibraryBtnClick, renderLibContent, incementLibPage, resetLibPage };
+function setCardsPerPage(newValue) {
+  cardsPerPage = newValue;
+}
+
+function defCardsPerPage() {
+  cardsPerPage = 9;
+}
+
+export {
+  onLibraryClick,
+  onLibraryBtnClick,
+  renderLibContent,
+  incementLibPage,
+  resetLibPage,
+  setCardsPerPage,
+  defCardsPerPage,
+};

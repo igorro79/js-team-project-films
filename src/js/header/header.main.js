@@ -11,6 +11,8 @@ import {
   incementLibPage,
   resetLibPage,
   renderLibContent,
+  setCardsPerPage,
+  defCardsPerPage,
 } from '../components/render-library-list';
 
 const localStorageApi = new LocalStorageApi();
@@ -121,6 +123,13 @@ function onLibBtn(event) {
   refs.watchedBtn.addEventListener('click', onWatched);
   refs.queueBtn.addEventListener('click', onQueue);
   apiService.resetPageNubmber();
+  if (window.innerWidth < 768) {
+    setCardsPerPage(4);
+  } else if (window.innerWidth >= 768 && window.innerWidth < 1024) {
+    setCardsPerPage(8);
+  } else if (window.innerWidth >= 1024) {
+    defCardsPerPage();
+  }
   loadMoreBtn.refs.button.removeEventListener('click', loadMorePopular);
   loadMoreBtn.refs.button.removeEventListener('click', loadMoreSearch);
   contentCardsRef.innerHTML = '';
