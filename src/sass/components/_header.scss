@@ -37,23 +37,7 @@
   display: flex;
   align-items: stretch;
 }
-.logo__img {
-  animation: var(--animation, none) 16s infinite linear;
-}
-.logo__img:hover {
-  animation-play-state: paused;
-}
-.logo__img:nth-of-type(odd) {
-  align-self: flex-end;
-  --direction: 50%;
-}
 
-@keyframes slide {
-  to {
-    -webkit-transform: translateY(var(--direction, -50%));
-    transform: translateY(var(--direction, -50%));
-  }
-}
 
 .title {
   margin-left: 10px;
@@ -65,6 +49,17 @@
 
     align-self: center;
   }
+  background: url(https://i.ibb.co/RDTnNrT/animated-text-fill.png) repeat-y;
+	  -webkit-background-clip: text;
+	  	  -webkit-text-fill-color: transparent;
+	  -webkit-animation: aitf 80s linear infinite;
+	  -webkit-transform: translate3d(0,0,0);
+	  -webkit-backface-visibility: hidden;
+
+  }
+@-webkit-keyframes aitf {
+	0% { background-position: 0% 50%; }
+	100% { background-position: 100% 50%; }
 }
 .header__nav {
   margin-left: auto;
