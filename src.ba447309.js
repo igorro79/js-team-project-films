@@ -84,4 +84,4 @@ let e=document.querySelector(".goup__btn");function t(){window.scrollY>0?e.remov
 },{"./header/header.main":"Z2eI","./components/goup-btn":"k4F0","./components/on-team":"AWWb"}],"Focm":[function(require,module,exports) {
 "use strict";require("./sass/main.scss"),require("./js/main");
 },{"./sass/main.scss":"clu1","./js/main":"d6sW"}]},{},["Focm"], null)
-//# sourceMappingURL=/js-team-project-films/src.eb7d6db4.js.map
+//# sourceMappingURL=/js-team-project-films/src.ba447309.js.map
