@@ -50,6 +50,20 @@
 
     align-self: center;
   }
+  background: url(https://i.ibb.co/RDTnNrT/animated-text-fill.png) repeat-y;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -webkit-animation: transform 80s linear infinite;
+  -webkit-transform: translate3d(0, 0, 0);
+  -webkit-backface-visibility: hidden;
+}
+@-webkit-keyframes transform {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
 }
 .header__nav-wrapper {
   display: flex;
@@ -99,7 +113,7 @@
   }
 }
 .header__nav-link:hover,
-.title-link:hover,
+// .title-link:hover,
 .header__nav-link:focus,
 .title-link:focus {
   animation-name: changeColor;
