@@ -38,15 +38,23 @@
   align-items: stretch;
 }
 .logo__img {
-  animation: heartBeat;
-  animation-duration: 3s;
-  animation-iteration-count: infinite;
+  animation: var(--animation, none) 16s infinite linear;
+}
+.logo__img:hover {
+  animation-play-state: paused;
+}
+.logo__img:nth-of-type(odd) {
+  align-self: flex-end;
+  --direction: 50%;
+}
 
-  &:hover,
-  &:focus {
-    animation-play-state: paused;
+@keyframes slide {
+  to {
+    -webkit-transform: translateY(var(--direction, -50%));
+    transform: translateY(var(--direction, -50%));
   }
 }
+
 .title {
   margin-left: 10px;
   display: none;
