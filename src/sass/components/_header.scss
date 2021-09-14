@@ -36,8 +36,11 @@
 .logo__link {
   display: flex;
   align-items: stretch;
+  outline-color: $accent8;
 }
-.title {
+
+.title-link {
+  line-height: 0.8;
   margin-left: 10px;
   display: none;
   @media screen and (min-width: 768px) {
@@ -47,6 +50,11 @@
 
     align-self: center;
   }
+}
+.header__nav-wrapper {
+  display: flex;
+
+  outline: none;
 }
 .header__nav {
   margin-left: auto;
@@ -63,6 +71,7 @@
   line-height: 1.2;
   color: $white-color;
   text-transform: uppercase;
+  outline-color: $accent8;
 }
 
 .header__nav-link--active::after {
@@ -75,6 +84,29 @@
   height: 4px;
   border-radius: 1px;
   background-color: $accent8;
+}
+@keyframes changeColor {
+  0% {
+    color: $white-color;
+  }
+
+  50% {
+    color: $accent8;
+  }
+
+  100% {
+    color: $white-color;
+  }
+}
+.header__nav-link:hover,
+.title-link:hover,
+.header__nav-link:focus,
+.title-link:focus {
+  animation-name: changeColor;
+  animation-duration: 1300ms;
+  animation-timing-function: ease-in;
+  animation-iteration-count: infinite;
+  outline-color: $accent8;
 }
 
 .header__form {
