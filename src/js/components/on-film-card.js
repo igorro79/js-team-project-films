@@ -142,9 +142,7 @@ function updateInfo() {
   const genreInfoRef = insert.querySelector('.item-info-gen');
   const ratingInfoRef = insert.querySelector('.content__rating');
   const populInfoRef = insert.querySelector('.item-info-popul');
-  const populInfoText = populInfoRef.innerText;
-  const a = populInfoText.slice(0, populInfoText.indexOf('.'));
-  const b = populInfoText.substring(populInfoText.indexOf('.'));
+  const updatePopulInfo = populInfoRef.innerText;
 
   if (genreInfoRef.innerText.trim() === '') {
     genreInfoRef.innerText = 'Other';
@@ -152,11 +150,9 @@ function updateInfo() {
   if (!ratingInfoRef.textContent.includes('.')) {
     ratingInfoRef.textContent += '.0';
   }
-
-  if (b.length > 1 && b.length <= 2) {
-    populInfoRef.innerText = a + b;
-  }
-  if (b.length > 2) {
-    populInfoRef.innerText = a + b.slice(0, 2);
+  if (!updatePopulInfo.includes('.')) {
+    populInfoRef.innerText = updatePopulInfo;
+  } else if (updatePopulInfo.includes('.')) {
+    populInfoRef.innerText = updatePopulInfo.slice(0, updatePopulInfo.indexOf('.') + 2);
   }
 }
