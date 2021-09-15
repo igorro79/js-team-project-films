@@ -142,12 +142,17 @@ function updateInfo() {
   const genreInfoRef = insert.querySelector('.item-info-gen');
   const ratingInfoRef = insert.querySelector('.content__rating');
   const populInfoRef = insert.querySelector('.item-info-popul');
-  const updatedPopulInfo = populInfoRef.innerText.slice(0, populInfoRef.innerText.length - 2);
-  if (genreInfoRef.innerHTML.trim() === '') {
-    genreInfoRef.innerHTML = 'Other';
+  const updatePopulInfo = populInfoRef.innerText;
+
+  if (genreInfoRef.innerText.trim() === '') {
+    genreInfoRef.innerText = 'Other';
   }
   if (!ratingInfoRef.textContent.includes('.')) {
     ratingInfoRef.textContent += '.0';
   }
-  populInfoRef.innerText = ` ${updatedPopulInfo}`;
+  if (!updatePopulInfo.includes('.')) {
+    populInfoRef.innerText = updatePopulInfo;
+  } else if (updatePopulInfo.includes('.')) {
+    populInfoRef.innerText = updatePopulInfo.slice(0, updatePopulInfo.indexOf('.') + 2);
+  }
 }
